@@ -455,7 +455,7 @@ function doGet(e) {
 
   // ?sheet=xxx → データAPI（JSON / JSONP）
   if (sheetParam) {
-    const data = _getData(e);
+    const data = sheetParam === 'sponsor' ? getSponsorSheetData() : _getData(e);
     const json = JSON.stringify(data);
     const cb   = e.parameter.callback;
     if (cb) {

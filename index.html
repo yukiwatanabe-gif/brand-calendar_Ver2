@@ -2360,6 +2360,7 @@ var App = function App() {
   var handleReloadSponsor = useCallback(function () {
     setLoadingSponsor(true);
     fetchViaGasRun('getSponsorSheetData')
+      .catch(function() { return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('sponsor') : Promise.resolve([]); })
       .then(function(d) { setSponsorSheetData(Array.isArray(d) ? d : []); })
       .catch(function() { setSponsorSheetData([]); })
       .finally(function() { setLoadingSponsor(false); });
