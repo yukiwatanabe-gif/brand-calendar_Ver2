@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ブランド戦略案件ハブ | Yogibo</title>
+  <title>ブランド戦略 施策カレンダー | Yogibo</title>
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,6 +16,34 @@
     .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
     .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   </style>
+  <script>
+  (function() {
+    var PW = 'Yogibo2026', KEY = 'yg_auth';
+    if (sessionStorage.getItem(KEY) === '1') return;
+    document.addEventListener('DOMContentLoaded', function() {
+      var overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:#f9fafb;display:flex;align-items:center;justify-content:center;z-index:9999;';
+      overlay.innerHTML = '<div style="background:white;border-radius:16px;padding:40px;width:320px;box-shadow:0 4px 24px rgba(0,0,0,0.1);text-align:center;">'
+        + '<div style="font-size:32px;margin-bottom:16px;">🔒</div>'
+        + '<h2 style="font-size:16px;font-weight:700;color:#111;margin:0 0 4px;">ブランド戦略 施策カレンダー</h2>'
+        + '<p style="font-size:13px;color:#6b7280;margin:0 0 20px;">パスワードを入力してください</p>'
+        + '<input id="pw-in" type="password" placeholder="パスワード" style="width:100%;box-sizing:border-box;padding:10px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:14px;outline:none;margin-bottom:8px;">'
+        + '<div id="pw-err" style="color:#ef4444;font-size:12px;height:18px;margin-bottom:8px;"></div>'
+        + '<button id="pw-btn" style="width:100%;padding:10px;background:#1d4ed8;color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">入力</button>'
+        + '</div>';
+      document.body.insertBefore(overlay, document.body.firstChild);
+      var inp = document.getElementById('pw-in');
+      var err = document.getElementById('pw-err');
+      function check() {
+        if (inp.value === PW) { sessionStorage.setItem(KEY, '1'); overlay.remove(); }
+        else { err.textContent = 'パスワードが違います'; inp.value = ''; inp.focus(); }
+      }
+      document.getElementById('pw-btn').addEventListener('click', check);
+      inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') check(); });
+      inp.focus();
+    });
+  })();
+  </script>
 </head>
 <body>
   <div id="root"></div>
@@ -805,7 +833,7 @@ var Sidebar = function Sidebar(_ref4) {
     className: "text-xs text-gray-400 leading-none"
   }, "\u30D6\u30E9\u30F3\u30C9\u6226\u7565"), /*#__PURE__*/React.createElement("div", {
     className: "text-sm font-bold text-gray-900 leading-tight"
-  }, "\u6848\u4EF6\u30CF\u30D6")))), /*#__PURE__*/React.createElement("nav", {
+  }, "\u65BD\u7B56\u30AB\u30EC\u30F3\u30C0\u30FC")))), /*#__PURE__*/React.createElement("nav", {
     className: "flex-1 px-2 py-3 space-y-0.5"
   }, NAV.map(function (n) {
     return /*#__PURE__*/React.createElement("button", {
