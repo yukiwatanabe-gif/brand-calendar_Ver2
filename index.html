@@ -2161,8 +2161,18 @@ var SponsorSheetSection = function SponsorSheetSection(_ref_sp) {
     if (typeof google !== 'undefined' && google.script && google.script.run) {
       google.script.run
         .withSuccessHandler(function() { setSaving(false); setShowForm(false); onReload(); })
-        .withFailureHandler(function(e) { setSaving(false); alert('保存失敗: ' + (e.message || e)); })
+        .withFailureHandler(function(err) { setSaving(false); alert('保存失敗: ' + (err.message || err)); })
         .saveSponsorData(params);
+    } else if (SHEET_CONFIG.webAppUrl) {
+      var qs = Object.entries(params).map(function(kv) { return encodeURIComponent(kv[0]) + '=' + encodeURIComponent(kv[1] != null ? kv[1] : ''); }).join('&');
+      var cbName = '_sponsorsave_' + Date.now();
+      var s = document.createElement('script');
+      s.src = SHEET_CONFIG.webAppUrl + '?gasAction=saveSponsor&' + qs + '&callback=' + cbName;
+      window[cbName] = function(result) { delete window[cbName]; s.remove(); setSaving(false); if (result && result.error) { alert('保存失敗: ' + result.error); } else { setShowForm(false); onReload(); } };
+      s.onerror = function() { delete window[cbName]; s.remove(); setSaving(false); alert('保存に失敗しました'); };
+      document.head.appendChild(s);
+    } else {
+      setSaving(false);
     }
   };
   var fmtNum = function(v) { var n = parseInt(v); return (!v || isNaN(n)) ? '—' : n.toLocaleString() + '円'; };

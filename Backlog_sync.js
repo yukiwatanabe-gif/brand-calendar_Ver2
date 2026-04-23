@@ -498,6 +498,21 @@ function doGet(e) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 
+  // ?gasAction=saveSponsor → 協賛案件をスプレッドシートに保存（GitHub Pages対応JSONP）
+  if (e && e.parameter && e.parameter.gasAction === 'saveSponsor') {
+    const result = saveSponsorData(e.parameter);
+    const json = JSON.stringify(result);
+    const cb = e.parameter.callback;
+    if (cb) {
+      return ContentService
+        .createTextOutput(`${cb}(${json})`)
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    }
+    return ContentService
+      .createTextOutput(json)
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   // パラメータなし → ダッシュボードHTMLを返す
   return HtmlService.createHtmlOutputFromFile('index')
     .setTitle('案件ハブ | Yogibo')
