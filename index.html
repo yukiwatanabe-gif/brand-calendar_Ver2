@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブランド戦略案件ハブ | Yogibo</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; background: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif; }
+    * { box-sizing: border-box; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+    .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+"use strict";
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var _React = React,
+  useState = _React.useState,
+  useCallback = _React.useCallback,
+  useEffect = _React.useEffect;
+
+// ─── SPREADSHEET CONFIG ──────────────────────────────────────────────────
+var SHEET_CONFIG = {
+  spreadsheetId: '1_IRj1_zfE9JjlckGyT1dXh4trbtBFODfPmJYNRLEKJI',
+  sheets: {
+    campaigns: {
+      gid: '894415878',
+      name: '2026_campaigns_import'
+    },
+    backlog: {
+      gid: '176867546',
+      name: 'Backlog_Data'
+    }
+  },
+  webAppUrl: 'https://script.google.com/macros/s/AKfycbyryIO_bGvWgc8YpsSC-q1bR6JpMPyccAe1Af9Uf8YkS_EeqFwZwBwTRkkiYfymP_xsFg/exec'
+};
+
+// ─── STATIC DATA ─────────────────────────────────────────────────────────
+var normalize = function normalize(d) {
+  return d ? d.replace(/\//g, '-') : '';
+};
+var RAW_SHEET_DATA = [{
+  title: 'リサイズキャンペーン',
+  start: '2026/09/11',
+  end: '2026/09/27',
+  type: 'campaign',
+  team: 'all',
+  tentative: true,
+  memo: '9月施策として実施予定'
+}, {
+  title: 'oggiotto販売開始',
+  start: '2026/04/24',
+  end: '2026/04/24',
+  type: 'launch',
+  team: 'all',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'Yogibo Chilly Mat-Blanket',
+  start: '2026/05/22',
+  end: '2026/05/29',
+  type: 'launch',
+  team: 'all',
+  tentative: true,
+  memo: '【4/6追記】5月29日発売予定だが5月22日への前倒しを検討中。GW前に確定見込み。'
+}, {
+  title: 'ミニチュアYogibo テスト販売開始',
+  start: '2026/08/07',
+  end: '2026/08/07',
+  type: 'launch',
+  team: 'all',
+  tentative: true,
+  memo: '店舗：テスト販売優先店舗31店舗。EC：公式オンラインストアのみ'
+}, {
+  title: 'LUCKY NEW YEAR',
+  start: '2025/12/26',
+  end: '2026/01/12',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: 'Store:2025/12/26〜2026/1/12 EC:2025/12/26 9:00〜'
+}, {
+  title: 'バレンタイン',
+  start: '2026/02/01',
+  end: '2026/02/14',
+  type: 'event',
+  team: 'all',
+  tentative: false,
+  memo: 'キャンペーンではなく施策。EC期間なし'
+}, {
+  title: '新生活応援キャンペーン',
+  start: '2026/02/13',
+  end: '2026/03/15',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: 'Store:2/13〜3/15 EC:2/13 9:00〜3/16頃'
+}, {
+  title: 'ヨギメンテウィーク',
+  start: '2026/03/16',
+  end: '2026/03/31',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: '延長あり：4/1〜4/8 EC:3/16 9:00〜'
+}, {
+  title: '母の日',
+  start: '2026/04/24',
+  end: '2026/05/10',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: '仮名称。Store:4/24〜5/10 EC:4/24 9:00〜'
+}, {
+  title: '母の日 情報解禁',
+  start: '2026/04/17',
+  end: '2026/04/17',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'GW2026（EC限定送料無料）',
+  start: '2026/04/28',
+  end: '2026/05/11',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: '4/28 12:00から5/11 8:59まで'
+}, {
+  title: '父の日2026',
+  start: '2026/06/05',
+  end: '2026/06/21',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: 'Store:6/5〜6/21 EC:6/5 9:00〜'
+}, {
+  title: 'Zキャンペーン',
+  start: '2026/06/12',
+  end: '2026/06/28',
+  type: 'campaign',
+  team: 'all',
+  tentative: true,
+  memo: '仮。創業祭次第で後ろ倒しあり EC:6/15 9:00〜'
+}, {
+  title: '創業祭2026',
+  start: '2026/07/17',
+  end: '2026/08/16',
+  type: 'campaign',
+  team: 'all',
+  tentative: true,
+  memo: 'M案件はおそらく実施の方向（未確定）'
+}, {
+  title: 'お盆2026',
+  start: '2026/08/13',
+  end: '2026/08/16',
+  type: 'campaign',
+  team: 'all',
+  tentative: true,
+  memo: 'Store:8/13〜8/16 EC:8/13 9:00〜8/17 8:59'
+}, {
+  title: 'ジュエルトーン',
+  start: '2026/04/27',
+  end: '2026/04/27',
+  type: 'launch',
+  team: 'all',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'Yogibo Sling Go',
+  start: '2026/04/28',
+  end: '2026/04/28',
+  type: 'launch',
+  team: 'all',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'Moon Pillow 替えカバー',
+  start: '2026/04/24',
+  end: '2026/04/24',
+  type: 'launch',
+  team: 'ec',
+  tentative: false,
+  memo: ''
+}, {
+  title: '母の日 デザイン案件登録〆切',
+  start: '2026/03/31',
+  end: '2026/03/31',
+  type: 'deadline',
+  team: 'all',
+  tentative: true,
+  memo: ''
+}, {
+  title: 'Moon Pillow 替えカバー デザイン案件登録〆切',
+  start: '2026/03/31',
+  end: '2026/03/31',
+  type: 'deadline',
+  team: 'all',
+  tentative: false,
+  memo: 'ECは登録済み'
+}, {
+  title: 'Moon/MegaMoonカバー発売 デザイン案件登録〆切',
+  start: '2026/03/31',
+  end: '2026/03/31',
+  type: 'deadline',
+  team: 'all',
+  tentative: false,
+  memo: ''
+}, {
+  title: '父の日 デザイン案件登録〆切',
+  start: '2026/04/20',
+  end: '2026/04/20',
+  type: 'deadline',
+  team: 'all',
+  tentative: true,
+  memo: ''
+}, {
+  title: 'Chilly Mat2026 デザイン案件登録〆切',
+  start: '2026/04/20',
+  end: '2026/04/20',
+  type: 'deadline',
+  team: 'all',
+  tentative: true,
+  memo: ''
+}, {
+  title: 'GW デザイン案件登録〆切',
+  start: '2026/04/10',
+  end: '2026/04/10',
+  type: 'deadline',
+  team: 'all',
+  tentative: true,
+  memo: ''
+}, {
+  title: 'ジュエルトーン・SlingGo・母の日 店舗納品',
+  start: '2026/04/22',
+  end: '2026/04/22',
+  type: 'deadline',
+  team: 'vmd',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'oggiotto 情報解禁',
+  start: '2026/04/13',
+  end: '2026/04/13',
+  type: 'launch',
+  team: 'all',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'ヨギメンテウィーク（延長）',
+  start: '2026/04/01',
+  end: '2026/04/07',
+  type: 'campaign',
+  team: 'all',
+  tentative: false,
+  memo: ''
+}, {
+  title: '【ジュエル/SlingGo/Oggiotto】LMI入稿〆切',
+  start: '2026-04-02',
+  end: '2026-04-02',
+  type: 'deadline',
+  team: 'vmd',
+  tentative: false,
+  memo: ''
+}, {
+  title: '店舗全店 VMDチェック期日',
+  start: '2026-04-03',
+  end: '2026-04-03',
+  type: 'other',
+  team: 'vmd',
+  tentative: false,
+  memo: 'TUNAGでのチェック、エリマネへのチェック依頼'
+}, {
+  title: '渋谷LOFT 売場拡大 打ち合わせ',
+  start: '2026-04-06',
+  end: '2026-04-06',
+  type: 'other',
+  team: 'vmd',
+  tentative: false,
+  memo: ''
+}, {
+  title: '接客ツール収納什器 店舗到着日',
+  start: '2026-04-23',
+  end: '2026-04-23',
+  type: 'other',
+  team: 'vmd',
+  tentative: false,
+  memo: ''
+}, {
+  title: '御堂筋ウィンドウ',
+  start: '2026-04-28',
+  end: '2026-04-28',
+  type: 'campaign',
+  team: 'vmd',
+  tentative: false,
+  memo: ''
+}, {
+  title: '御堂筋ショーウィンドウ設営',
+  start: '2026-04-28',
+  end: '2026-04-28',
+  type: 'other',
+  team: 'vmd',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'GFEST（群馬）',
+  start: '2026-11-22',
+  end: '2026-11-23',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: '搬入出は11月21日〜23日を予定'
+}, {
+  title: 'アロフト東京銀座 ドッグラン＆BBQ',
+  start: '2026-04-16',
+  end: '2026-04-16',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: '4/16ドッグランオープン・メディア会、4/17一般公開開始'
+}, {
+  title: 'ワンダリア横浜（BASEGATE横浜関内 Wonderia）',
+  start: '2026-03-12',
+  end: '2026-03-12',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: '設置期間は1年間'
+}, {
+  title: 'XD（下田の海辺）',
+  start: '2026-05-10',
+  end: '2026-05-10',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: ''
+}, {
+  title: '相馬野馬追',
+  start: '2026-05-23',
+  end: '2026-05-25',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'パリ・サン＝ジェルマン（PSG）',
+  start: '2026-05-01',
+  end: '2026-05-05',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'Hello Friends! W!th LINEヤフー',
+  start: '2026-05-12',
+  end: '2026-05-13',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: ''
+}, {
+  title: 'STREET LEAGUE SKATEBOARDING（SLS）',
+  start: '2026-11-14',
+  end: '2026-11-14',
+  type: 'event',
+  team: 'sponsor',
+  tentative: false,
+  memo: 'スケボーの大会'
+}, {
+  title: '【テレビ放送】ヒルナンデス',
+  start: '2026-04-17',
+  end: '2026-04-17',
+  type: 'other',
+  team: 'promo',
+  tentative: false,
+  memo: 'Yogibo Store 酒々井プレミアム・アウトレット店。アナウンサー4名が2チームに分かれてお客様にインタビュー。'
+}].map(function (d, i) {
+  return _objectSpread(_objectSpread({}, d), {}, {
+    id: "sheet_".concat(i),
+    start: normalize(d.start),
+    end: normalize(d.end || d.start),
+    source: 'スプシ'
+  });
+});
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────
+var TODAY = new Date();
+var fmt = function fmt(s) {
+  if (!s) return '';
+  var d = new Date(s);
+  return "".concat(d.getMonth() + 1, "/").concat(d.getDate());
+};
+var fmtFull = function fmtFull(s) {
+  if (!s) return '';
+  var d = new Date(s);
+  return "".concat(d.getFullYear(), "/").concat(d.getMonth() + 1, "/").concat(d.getDate());
+};
+var fmtRange = function fmtRange(s, e) {
+  return !s ? '' : !e || s === e ? fmt(s) : "".concat(fmt(s), " \u301C ").concat(fmt(e));
+};
+var daysUntil = function daysUntil(s) {
+  return Math.ceil((new Date(s) - TODAY) / 86400000);
+};
+var isActive = function isActive(d) {
+  return new Date(d.start) <= TODAY && new Date(d.end) >= TODAY;
+};
+var isSoon = function isSoon(d) {
+  var day = daysUntil(d.end || d.start);
+  return day >= 0 && day <= 14;
+};
+
+// ─── CSV PARSER ───────────────────────────────────────────────────────────
+function parseCSV(text) {
+  var rows = [];
+  var row = [],
+    field = '',
+    inQ = false;
+  for (var i = 0; i < text.length; i++) {
+    var c = text[i];
+    if (inQ) {
+      if (c === '"' && text[i + 1] === '"') {
+        field += '"';
+        i++;
+      } else if (c === '"') inQ = false;else field += c;
+    } else {
+      if (c === '"') inQ = true;else if (c === ',') {
+        row.push(field);
+        field = '';
+      } else if (c === '\n') {
+        row.push(field);
+        if (row.some(Boolean)) rows.push(row);
+        row = [];
+        field = '';
+      } else if (c !== '\r') field += c;
+    }
+  }
+  if (row.length) {
+    row.push(field);
+    rows.push(row);
+  }
+  return rows;
+}
+function fetchCSV(_x) {
+  return _fetchCSV.apply(this, arguments);
+}
+function _fetchCSV() {
+  _fetchCSV = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(gid) {
+    var url, resp, text, rows, headers;
+    return _regenerator().w(function (_context4) {
+      while (1) switch (_context4.n) {
+        case 0:
+          url = "https://docs.google.com/spreadsheets/d/".concat(SHEET_CONFIG.spreadsheetId, "/gviz/tq?tqx=out:csv&gid=").concat(gid);
+          _context4.n = 1;
+          return fetch(url);
+        case 1:
+          resp = _context4.v;
+          if (resp.ok) {
+            _context4.n = 2;
+            break;
+          }
+          throw new Error("HTTP ".concat(resp.status));
+        case 2:
+          _context4.n = 3;
+          return resp.text();
+        case 3:
+          text = _context4.v;
+          rows = parseCSV(text);
+          if (!(rows.length < 2)) {
+            _context4.n = 4;
+            break;
+          }
+          return _context4.a(2, []);
+        case 4:
+          headers = rows[0];
+          return _context4.a(2, rows.slice(1).map(function (r) {
+            var obj = {};
+            headers.forEach(function (h, j) {
+              return obj[h] = r[j] || '';
+            });
+            return obj;
+          }));
+      }
+    }, _callee4);
+  }));
+  return _fetchCSV.apply(this, arguments);
+}
+function fetchViaGasRun(funcName) {
+  return new Promise(function(resolve, reject) {
+    if (typeof google === 'undefined' || !google.script || !google.script.run) {
+      reject(new Error('google.script.run not available'));
+      return;
+    }
+    google.script.run.withSuccessHandler(resolve).withFailureHandler(function(e) {
+      reject(new Error(e && e.message ? e.message : String(e)));
+    })[funcName]();
+  });
+}
+function fetchViaWebApp(sheetParam) {
+  return new Promise(function (resolve, reject) {
+    var cbName = "_jsonp_".concat(Date.now());
+    var script = document.createElement('script');
+    var timer = setTimeout(function () {
+      cleanup();
+      reject(new Error('タイムアウト（10秒）'));
+    }, 10000);
+    function cleanup() {
+      clearTimeout(timer);
+      delete window[cbName];
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+    window[cbName] = function (data) {
+      cleanup();
+      if (data && data.error) reject(new Error(data.error));else resolve(data);
+    };
+    script.onerror = function () {
+      cleanup();
+      reject(new Error('スクリプト読み込みエラー'));
+    };
+    script.src = "".concat(SHEET_CONFIG.webAppUrl, "?sheet=").concat(sheetParam, "&callback=").concat(cbName);
+    document.head.appendChild(script);
+  });
+}
+function fetchSheetData(_x2) {
+  return _fetchSheetData.apply(this, arguments);
+}
+function _fetchSheetData() {
+  _fetchSheetData = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(gid) {
+    var rows, _t5;
+    return _regenerator().w(function (_context5) {
+      while (1) switch (_context5.n) {
+        case 0:
+          _context5.n = 1;
+          return fetchViaGasRun('getCampaignData').catch(function() {
+            return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('campaigns') : fetchCSV(gid);
+          });
+        case 1:
+          _t5 = _context5.v;
+          rows = _t5;
+          return _context5.a(2, rows.map(function (obj, i) {
+            return _objectSpread(_objectSpread({}, obj), {}, {
+              id: obj.id || "live_".concat(i),
+              start: normalize(obj.start),
+              end: normalize(obj.end || obj.start),
+              tentative: obj.tentative === 'TRUE' || obj.tentative === 'true',
+              source: 'スプシ'
+            });
+          }));
+      }
+    }, _callee5);
+  }));
+  return _fetchSheetData.apply(this, arguments);
+}
+function parseBacklogRows(rows) {
+  return rows.filter(function (obj) {
+    return obj.title;
+  }).map(function (obj, i) {
+    return {
+      id: "bl_".concat(i),
+      backlog_key: obj.backlog_key || '',
+      title: obj.title || '',
+      start: normalize(obj.start),
+      end: normalize(obj.end || obj.start),
+      media_type: obj.media_type || 'タスク',
+      team: obj.team || 'all',
+      assignee: obj.assignee || '',
+      status: obj.status || '',
+      priority: obj.priority || '',
+      milestone: obj.milestone || '',
+      category: obj.category || '',
+      issue_type: obj.issue_type || '',
+      description: obj.description || '',
+      source: 'Backlog',
+      synced_at: obj.synced_at || '',
+      delivery_time: obj.delivery_time || ''
+    };
+  });
+}
+function fetchBacklogSheetData() {
+  return _fetchBacklogSheetData.apply(this, arguments);
+} // ─── BADGES ──────────────────────────────────────────────────────────────
+function _fetchBacklogSheetData() {
+  _fetchBacklogSheetData = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
+    var _t6, _t7;
+    return _regenerator().w(function (_context6) {
+      while (1) switch (_context6.n) {
+        case 0:
+          _context6.n = 1;
+          return fetchViaGasRun('getBacklogData').catch(function() {
+            return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('backlog') : fetchCSV(SHEET_CONFIG.sheets.backlog.gid);
+          });
+        case 1:
+          return _context6.a(2, parseBacklogRows(_context6.v));
+      }
+    }, _callee6);
+  }));
+  return _fetchBacklogSheetData.apply(this, arguments);
+}
+var TEAM_CFG = {
+  all: {
+    label: '全体',
+    cls: 'bg-gray-100 text-gray-700 border-gray-200'
+  },
+  ec: {
+    label: 'EC',
+    cls: 'bg-orange-100 text-orange-700 border-orange-200'
+  },
+  vmd: {
+    label: 'VMD',
+    cls: 'bg-teal-100 text-teal-700 border-teal-200'
+  },
+  sponsor: {
+    label: '協賛',
+    cls: 'bg-rose-100 text-rose-700 border-rose-200'
+  },
+  promo: {
+    label: 'プロモ',
+    cls: 'bg-blue-100 text-blue-700 border-blue-200'
+  },
+  design: {
+    label: 'デザイン',
+    cls: 'bg-purple-100 text-purple-700 border-purple-200'
+  },
+  ad: {
+    label: '広告',
+    cls: 'bg-green-100 text-green-700 border-green-200'
+  }
+};
+var TeamBadge = function TeamBadge(_ref) {
+  var team = _ref.team;
+  var c = TEAM_CFG[team] || {
+    label: team,
+    cls: 'bg-gray-100 text-gray-700 border-gray-200'
+  };
+  return /*#__PURE__*/React.createElement("span", {
+    className: "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ".concat(c.cls)
+  }, c.label);
+};
+var TYPE_CFG = {
+  campaign: {
+    label: 'キャンペーン',
+    emoji: '📢',
+    cls: 'bg-violet-50 text-violet-700'
+  },
+  launch: {
+    label: '新商品・発売',
+    emoji: '🚀',
+    cls: 'bg-sky-50 text-sky-700'
+  },
+  event: {
+    label: 'イベント',
+    emoji: '📅',
+    cls: 'bg-emerald-50 text-emerald-700'
+  },
+  deadline: {
+    label: '納期',
+    emoji: '⏰',
+    cls: 'bg-amber-50 text-amber-700'
+  },
+  other: {
+    label: 'その他',
+    emoji: '📌',
+    cls: 'bg-gray-100 text-gray-600'
+  }
+};
+var TypeBadge = function TypeBadge(_ref2) {
+  var type = _ref2.type;
+  var c = TYPE_CFG[type] || TYPE_CFG.other;
+  return /*#__PURE__*/React.createElement("span", {
+    className: "inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium ".concat(c.cls)
+  }, c.emoji, " ", c.label);
+};
+var TentativeBadge = function TentativeBadge() {
+  return /*#__PURE__*/React.createElement("span", {
+    className: "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-50 text-yellow-700 border border-yellow-200"
+  }, "\uD83D\uDD3A \u4EEE");
+};
+var SourceBadge = function SourceBadge() {
+  return /*#__PURE__*/React.createElement("span", {
+    className: "inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-700"
+  }, "\uD83D\uDCCA brand_calender_2026");
+};
+var MEDIA_TYPES = ['X', 'Instagram', 'Facebook', 'ブログ', 'PRTIMES', 'コーポレートサイト', 'ポータルサイト', '通常企画', '販促企画', '配信依頼', 'タスク'];
+var MEDIA_CFG = {
+  'X': {
+    emoji: '𝕏',
+    cls: 'bg-gray-900 text-white'
+  },
+  'Instagram': {
+    emoji: '📸',
+    cls: 'bg-pink-100 text-pink-700'
+  },
+  'Facebook': {
+    emoji: '📘',
+    cls: 'bg-blue-100 text-blue-700'
+  },
+  'ブログ': {
+    emoji: '✍️',
+    cls: 'bg-amber-100 text-amber-700'
+  },
+  'PRTIMES': {
+    emoji: '📰',
+    cls: 'bg-slate-200 text-slate-700'
+  },
+  'コーポレートサイト': {
+    emoji: '🌐',
+    cls: 'bg-teal-100 text-teal-700'
+  },
+  'ポータルサイト': {
+    emoji: '🛒',
+    cls: 'bg-rose-100 text-rose-700'
+  },
+  '通常企画': {
+    emoji: '📋',
+    cls: 'bg-indigo-100 text-indigo-700'
+  },
+  '販促企画': {
+    emoji: '🎯',
+    cls: 'bg-orange-100 text-orange-700'
+  },
+  '配信依頼': {
+    emoji: '📤',
+    cls: 'bg-cyan-100 text-cyan-700'
+  },
+  'タスク': {
+    emoji: '✅',
+    cls: 'bg-gray-100 text-gray-600'
+  }
+};
+var MediaBadge = function MediaBadge(_ref3) {
+  var type = _ref3.type;
+  var c = MEDIA_CFG[type] || {
+    emoji: '📌',
+    cls: 'bg-gray-100 text-gray-600'
+  };
+  return /*#__PURE__*/React.createElement("span", {
+    className: "inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold ".concat(c.cls)
+  }, type);
+};
+
+// ─── SIDEBAR ─────────────────────────────────────────────────────────────
+var NAV = [{
+  id: 'home',
+  emoji: '🏠',
+  label: '総合ダッシュボード'
+}, {
+  id: 'campaign',
+  emoji: '📢',
+  label: '企画・キャンペーン'
+}, {
+  id: 'sponsor',
+  emoji: '🤝',
+  label: '協賛'
+}, {
+  id: 'tasks',
+  emoji: '✅',
+  label: '納期・タスク'
+}, {
+  id: 'calendar',
+  emoji: '📅',
+  label: 'SNS配信'
+}];
+var Sidebar = function Sidebar(_ref4) {
+  var page = _ref4.page,
+    setPage = _ref4.setPage,
+    onReload = _ref4.onReload,
+    loading = _ref4.loading;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "w-56 min-h-screen bg-white border-r border-gray-200 flex flex-col fixed top-0 left-0 z-10"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "px-4 py-4 border-b border-gray-100"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-2.5"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm"
+  }, "Y"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "text-xs text-gray-400 leading-none"
+  }, "\u30D6\u30E9\u30F3\u30C9\u6226\u7565"), /*#__PURE__*/React.createElement("div", {
+    className: "text-sm font-bold text-gray-900 leading-tight"
+  }, "\u6848\u4EF6\u30CF\u30D6")))), /*#__PURE__*/React.createElement("nav", {
+    className: "flex-1 px-2 py-3 space-y-0.5"
+  }, NAV.map(function (n) {
+    return /*#__PURE__*/React.createElement("button", {
+      key: n.id,
+      onClick: function onClick() {
+        return setPage(n.id);
+      },
+      className: "w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-left transition-colors ".concat(page === n.id ? 'bg-gray-100 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900')
+    }, /*#__PURE__*/React.createElement("span", null, n.emoji), /*#__PURE__*/React.createElement("span", null, n.label));
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "px-3 py-3 border-t border-gray-100 space-y-2"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: onReload,
+    disabled: loading,
+    className: "w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-50"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: loading ? 'animate-spin' : ''
+  }, "\uD83D\uDD04"), loading ? '取得中...' : 'データ再読み込み')));
+};
+
+// ─── HOME PAGE ────────────────────────────────────────────────────────────
+var TEAM_BAR = {
+  all: 'bg-gray-400',
+  ec: 'bg-orange-400',
+  vmd: 'bg-teal-400',
+  sponsor: 'bg-rose-400',
+  promo: 'bg-blue-400',
+  design: 'bg-purple-400',
+  ad: 'bg-green-400'
+};
+var RoadmapRow = function RoadmapRow(_ref5) {
+  var item = _ref5.item,
+    totalDays = _ref5.totalDays,
+    baseDate = _ref5.baseDate;
+  var s = Math.max(0, (new Date(item.start) - baseDate) / 86400000);
+  var dur = Math.max(1, (new Date(item.end) - new Date(item.start)) / 86400000 + 1);
+  var left = s / totalDays * 100;
+  var width = Math.min(dur / totalDays * 100, 100 - left);
+  var tooltipLabel = item.start === item.end ? fmt(item.start) : fmtRange(item.start, item.end);
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-3 py-1.5 group relative"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-40 text-xs text-gray-600 truncate flex-shrink-0 group-hover:text-gray-900 flex items-center gap-1"
+  }, item.tentative && /*#__PURE__*/React.createElement("span", {
+    className: "text-yellow-500 text-xs"
+  }, "\uD83D\uDD3A"), item.title), /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 relative h-5"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0 bg-gray-100 rounded"
+  }), [0, 33.0, 67.0].map(function(pct, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: 'gl' + i,
+      className: "absolute inset-y-0 w-px bg-gray-300 opacity-60",
+      style: { left: pct + '%' }
+    });
+  }), [15.4, 48.4, 82.4].map(function(pct, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: 'gm' + i,
+      className: "absolute inset-y-0 w-px bg-gray-200 opacity-40",
+      style: { left: pct + '%' }
+    });
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-y-1 rounded ".concat(TEAM_BAR[item.team] || 'bg-gray-400', " opacity-75 group-hover:opacity-100 transition-opacity"),
+    style: {
+      left: "".concat(left, "%"),
+      width: "".concat(Math.max(width, 0.8), "%")
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute left-0 right-0 top-0 bottom-0 flex items-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity",
+    style: { left: "".concat(Math.min(left + Math.max(width, 0.8) + 0.5, 70), "%") }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "bg-gray-800 text-white text-xs px-2 py-0.5 rounded whitespace-nowrap shadow-lg"
+  }, tooltipLabel))), /*#__PURE__*/React.createElement("div", {
+    className: "w-14 flex-shrink-0"
+  }, /*#__PURE__*/React.createElement(TeamBadge, {
+    team: item.team
+  })));
+};
+var HomePage = function HomePage(_ref6) {
+  var data = _ref6.data;
+  var baseDate = new Date('2026-04-01');
+  var totalDays = 91;
+  var featured = data.filter(function (d) {
+    return ['campaign', 'launch'].includes(d.type);
+  }).filter(function (d) {
+    return isActive(d) || daysUntil(d.start) >= 0 && daysUntil(d.start) <= 14;
+  }).sort(function (a, b) {
+    return new Date(a.start) - new Date(b.start);
+  }).slice(0, 5);
+  var roadmap = data.filter(function (d) {
+    return ['campaign', 'launch', 'event'].includes(d.type);
+  }).filter(function (d) {
+    return new Date(d.start) >= baseDate && new Date(d.start) <= new Date('2026-07-01');
+  }).filter(function (d) {
+    return new Date(d.end) >= TODAY;
+  }).sort(function (a, b) {
+    return new Date(a.start) - new Date(b.start);
+  }).slice(0, 15);
+  var deadlines = data.filter(function (d) {
+    return ['deadline', 'launch', 'campaign'].includes(d.type) && isSoon(d);
+  }).sort(function (a, b) {
+    return new Date(a.end) - new Date(b.end);
+  }).slice(0, 7);
+  return /*#__PURE__*/React.createElement("div", {
+    className: "space-y-8"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    className: "text-xl font-bold text-gray-900"
+  }, "\u7DCF\u5408\u30C0\u30C3\u30B7\u30E5\u30DC\u30FC\u30C9"), /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500 mt-0.5"
+  }, TODAY.getFullYear() + "年" + (TODAY.getMonth()+1) + "月" + TODAY.getDate() + "日（" + ["日","月","火","水","木","金","土"][TODAY.getDay()] + "）現在 — ", data.length, "件のデータを表示中")), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
+    className: "text-sm font-semibold text-gray-700 mb-3"
+  }, "\uD83D\uDD25 Featured \u2014 \u9032\u884C\u4E2D\u30FB\u76F4\u8FD114\u65E5\u4EE5\u5185"), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-3 gap-4"
+  }, featured.map(function (item) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      className: "bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md transition-shadow"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex gap-1.5 flex-wrap mb-3"
+    }, /*#__PURE__*/React.createElement(TypeBadge, {
+      type: item.type
+    }), item.tentative && /*#__PURE__*/React.createElement(TentativeBadge, null)), /*#__PURE__*/React.createElement("h3", {
+      className: "font-semibold text-gray-900 text-sm mb-1.5 leading-snug"
+    }, item.title), item.memo && /*#__PURE__*/React.createElement("p", {
+      className: "text-xs text-gray-500 mb-3 line-clamp-2"
+    }, item.memo), /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center justify-between mt-auto pt-2 border-t border-gray-100"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-gray-400"
+    }, "\uD83D\uDCC5 ", fmtRange(item.start, item.end)), /*#__PURE__*/React.createElement(TeamBadge, {
+      team: item.team
+    })));
+  }), featured.length === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "col-span-3 bg-white rounded-xl border border-gray-200 p-6 text-center text-sm text-gray-400"
+  }, "\u76F4\u8FD1\u306E\u6848\u4EF6\u306F\u3042\u308A\u307E\u305B\u3093"))), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
+    className: "text-sm font-semibold text-gray-700 mb-3"
+  }, "\uD83D\uDCCA \u30ED\u30FC\u30C9\u30DE\u30C3\u30D7\uFF084\u6708\u301C6\u6708\uFF09"), /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-xl border border-gray-200 p-5"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-3 mb-1 pl-40 pr-14"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 relative h-8"
+  }, [['4\u6708', 0], ['5\u6708', 33.0], ['6\u6708', 67.0]].map(function (_ref7) {
+    var _ref8 = _slicedToArray(_ref7, 2),
+      lbl = _ref8[0],
+      pct = _ref8[1];
+    return /*#__PURE__*/React.createElement("span", {
+      key: 'm' + lbl,
+      className: "absolute text-xs text-gray-500 font-semibold",
+      style: {
+        left: "".concat(pct, "%"),
+        top: 0
+      }
+    }, lbl);
+  }), [['1', 0], ['15', 15.4], ['1', 33.0], ['15', 48.4], ['1', 67.0], ['15', 82.4]].map(function (_ref7, i) {
+    var _ref8 = _slicedToArray(_ref7, 2),
+      lbl = _ref8[0],
+      pct = _ref8[1];
+    return /*#__PURE__*/React.createElement("span", {
+      key: 'd' + i,
+      className: "absolute text-xs text-gray-400",
+      style: {
+        left: "".concat(pct, "%"),
+        top: '16px'
+      }
+    }, lbl);
+  }))), roadmap.map(function (item) {
+    return /*#__PURE__*/React.createElement(RoadmapRow, {
+      key: item.id,
+      item: item,
+      totalDays: totalDays,
+      baseDate: baseDate
+    });
+  }), roadmap.length === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "text-center text-sm text-gray-400 py-4"
+  }, "\u30C7\u30FC\u30BF\u306A\u3057"), /*#__PURE__*/React.createElement("div", {
+    className: "mt-3 pt-3 border-t border-gray-100 flex flex-wrap gap-3"
+  }, Object.entries(TEAM_CFG).map(function (_ref9) {
+    var _ref0 = _slicedToArray(_ref9, 2),
+      k = _ref0[0],
+      v = _ref0[1];
+    return /*#__PURE__*/React.createElement("div", {
+      key: k,
+      className: "flex items-center gap-1.5"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "w-3 h-3 rounded-sm ".concat(TEAM_BAR[k] || 'bg-gray-400')
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-gray-500"
+    }, v.label));
+  })))), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
+    className: "text-sm font-semibold text-gray-700 mb-3"
+  }, "\u26A0\uFE0F \u76F4\u8FD1\u306E\u7DE0\u5207\u30FB\u89E3\u7981\uFF0814\u65E5\u4EE5\u5185\uFF09"), /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-xl border border-gray-200 divide-y divide-gray-100"
+  }, deadlines.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    className: "p-6 text-center text-sm text-gray-400"
+  }, "\u76F4\u8FD1\u306E\u7DE0\u5207\u306F\u3042\u308A\u307E\u305B\u3093") : deadlines.map(function (item) {
+    var d = daysUntil(item.end);
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      className: "flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "w-10 text-center flex-shrink-0 ".concat(d <= 0 ? 'text-red-600' : d <= 3 ? 'text-red-500' : d <= 7 ? 'text-orange-500' : 'text-gray-400')
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "text-lg font-bold leading-none"
+    }, d <= 0 ? '！' : d), /*#__PURE__*/React.createElement("div", {
+      className: "text-xs"
+    }, d <= 0 ? '期限切' : '日後')), /*#__PURE__*/React.createElement("div", {
+      className: "flex-1 min-w-0"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "text-sm font-medium text-gray-800 truncate flex items-center gap-1"
+    }, item.tentative && /*#__PURE__*/React.createElement("span", {
+      className: "text-yellow-500"
+    }, "\uD83D\uDD3A"), item.title), /*#__PURE__*/React.createElement("div", {
+      className: "text-xs text-gray-400"
+    }, fmtRange(item.start, item.end))), /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center gap-2 flex-shrink-0"
+    }, /*#__PURE__*/React.createElement(TypeBadge, {
+      type: item.type
+    }), /*#__PURE__*/React.createElement(TeamBadge, {
+      team: item.team
+    })));
+  }))));
+};
+
+// ─── CAMPAIGN PAGE ────────────────────────────────────────────────────────
+var CampaignPage = function CampaignPage(_ref1) {
+  var data = _ref1.data,
+    backlogData = _ref1.backlogData,
+    onReload = _ref1.onReload;
+  var _useState = useState(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    search = _useState2[0],
+    setSearch = _useState2[1];
+  var _useState3 = useState(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    filterType = _useState4[0],
+    setFilterType = _useState4[1];
+  var _useState5 = useState(''),
+    _useState6 = _slicedToArray(_useState5, 2),
+    filterTeam = _useState6[0],
+    setFilterTeam = _useState6[1];
+  var _useState7 = useState(true),
+    _useState8 = _slicedToArray(_useState7, 2),
+    showTentative = _useState8[0],
+    setShowTentative = _useState8[1];
+  var _useState9 = useState(null),
+    _useState0 = _slicedToArray(_useState9, 2),
+    expandedId = _useState0[0],
+    setExpandedId = _useState0[1];
+  var _useStateCA1 = useState([]),
+    _useStateCA2 = _slicedToArray(_useStateCA1, 2),
+    manualCampaigns = _useStateCA2[0],
+    setManualCampaigns = _useStateCA2[1];
+  var _useStateCA3 = useState(false),
+    _useStateCA4 = _slicedToArray(_useStateCA3, 2),
+    showCampaignForm = _useStateCA4[0],
+    setShowCampaignForm = _useStateCA4[1];
+  var _useStateCA5 = useState(null),
+    _useStateCA6 = _slicedToArray(_useStateCA5, 2),
+    editingCampaign = _useStateCA6[0],
+    setEditingCampaign = _useStateCA6[1];
+  var _useStateCA7 = useState(EMPTY_CAMPAIGN_FORM),
+    _useStateCA8 = _slicedToArray(_useStateCA7, 2),
+    campaignForm = _useStateCA8[0],
+    setCampaignForm = _useStateCA8[1];
+  var _useStateCA9 = useState(false),
+    _useStateCA10 = _slicedToArray(_useStateCA9, 2),
+    savingCampaign = _useStateCA10[0],
+    setSavingCampaign = _useStateCA10[1];
+  var openEditCampaign = function openEditCampaign(item) {
+    var sid = _stableId(item);
+    setEditingCampaign(_objectSpread({}, item, { id: sid }));
+    setCampaignForm({ title: item.title || '', start: item.start || '', end: item.end || '', type: item.type || 'campaign', team: item.team || 'promo', memo: item.memo || '', tentative: !!item.tentative });
+    setShowCampaignForm(true);
+  };
+  var handleSaveCampaign = function handleSaveCampaign() {
+    if (!campaignForm.title.trim() || !campaignForm.end) return;
+    var sid = editingCampaign ? editingCampaign.id : 'c_' + Date.now();
+    var saved = _objectSpread({ id: sid, source: '\u624b\u52d5' }, campaignForm, { title: campaignForm.title.trim() });
+    if (editingCampaign) {
+      setManualCampaigns(function(prev) {
+        var exists = prev.some(function(c) { return c.id === sid; });
+        return exists ? prev.map(function(c) { return c.id === sid ? saved : c; }) : [].concat(_toConsumableArray(prev), [saved]);
+      });
+    } else {
+      setManualCampaigns(function(prev) { return [].concat(_toConsumableArray(prev), [saved]); });
+    }
+    setShowCampaignForm(false);
+    setEditingCampaign(null);
+    setCampaignForm(EMPTY_CAMPAIGN_FORM);
+    if (SHEET_CONFIG.webAppUrl) {
+      setSavingCampaign(true);
+      var action = editingCampaign ? 'updateCampaign' : 'addCampaign';
+      var title = campaignForm.title.trim();
+      var rowNum = editingCampaign && editingCampaign._row ? editingCampaign._row : '';
+      var qs = 'action=' + action + '&_row=' + encodeURIComponent(rowNum) + '&id=' + encodeURIComponent(sid) + '&title=' + encodeURIComponent(title) + '&start=' + encodeURIComponent(campaignForm.start || '') + '&end=' + encodeURIComponent(campaignForm.end || '') + '&type=' + encodeURIComponent(campaignForm.type || '') + '&team=' + encodeURIComponent(campaignForm.team || '') + '&memo=' + encodeURIComponent(campaignForm.memo || '');
+      var cb = '_csave_' + Date.now();
+      var s = document.createElement('script');
+      s.src = SHEET_CONFIG.webAppUrl + '?' + qs + '&callback=' + cb;
+      window[cb] = function() { delete window[cb]; s.remove(); setSavingCampaign(false); if (onReload) onReload(); };
+      s.onerror = function() { delete window[cb]; s.remove(); setSavingCampaign(false); };
+      document.head.appendChild(s);
+    }
+  };
+  var items = [].concat(_toConsumableArray(data.map(function(d) {
+    var sid = _stableId(d);
+    var override = manualCampaigns.find(function(m) { return m.id === sid; });
+    return override ? _objectSpread({}, d, override) : d;
+  })), _toConsumableArray(manualCampaigns.filter(function(m) {
+    return !data.some(function(d) { return _stableId(d) === m.id; });
+  }))).filter(function (d) {
+    return ['campaign', 'launch'].includes(d.type);
+  }).filter(function (d) {
+    return new Date(d.end) >= TODAY;
+  }).filter(function (d) {
+    return filterType === '' || d.type === filterType;
+  }).filter(function (d) {
+    return filterTeam === '' || d.team === filterTeam;
+  }).filter(function (d) {
+    return showTentative || !d.tentative;
+  }).filter(function (d) {
+    return search === '' || d.title.includes(search) || (d.memo || '').includes(search);
+  }).sort(function (a, b) {
+    return new Date(a.start) - new Date(b.start);
+  });
+  var months = [];
+  var grouped = {};
+  items.forEach(function (item) {
+    var key = item.start ? item.start.slice(0, 7) : 'other';
+    if (!grouped[key]) {
+      grouped[key] = [];
+      months.push(key);
+    }
+    grouped[key].push(item);
+  });
+  var monthLabel = function monthLabel(key) {
+    if (key === 'other') return '日付なし';
+    var _key$split = key.split('-'),
+      _key$split2 = _slicedToArray(_key$split, 2),
+      y = _key$split2[0],
+      m = _key$split2[1];
+    return "".concat(y, "\u5E74").concat(parseInt(m), "\u6708");
+  };
+  var getRelatedBacklog = function getRelatedBacklog(item) {
+    if (!backlogData || !backlogData.length) return [];
+    var keywords = item.title.replace(/[【】（）()「」・]/g, ' ').split(/\s+/).filter(function (k) {
+      return k.length >= 2;
+    });
+    return backlogData.filter(function (b) {
+      var searchStr = (b.milestone || '') + (b.category || '') + (b.title || '');
+      return keywords.some(function (kw) {
+        return searchStr.includes(kw);
+      });
+    }).slice(0, 8);
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "space-y-6"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start justify-between"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    className: "text-xl font-bold text-gray-900"
+  }, "\u4F01\u753B\u30FB\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3"), /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500 mt-0.5 flex items-center gap-2"
+  }, /*#__PURE__*/React.createElement(SourceBadge, null), " \u2014 ", items.length, "\u4EF6")), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() { setEditingCampaign(null); setCampaignForm(EMPTY_CAMPAIGN_FORM); setShowCampaignForm(function(v) { return !v; }); },
+    className: "flex items-center gap-1.5 px-3 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+  }, savingCampaign ? '\u4FDD\u5B58\u4E2D...' : '+ \u4F01\u753B\u3092\u8FFD\u52A0')), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-3 flex-wrap items-center"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    placeholder: "\uD83D\uDD0D \u691C\u7D22...",
+    value: search,
+    onChange: function onChange(e) {
+      return setSearch(e.target.value);
+    },
+    className: "px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 w-52"
+  }), /*#__PURE__*/React.createElement("select", {
+    value: filterType,
+    onChange: function onChange(e) {
+      return setFilterType(e.target.value);
+    },
+    className: "px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+  }, /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, "\u5168\u30BF\u30A4\u30D7"), /*#__PURE__*/React.createElement("option", {
+    value: "campaign"
+  }, "\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3"), /*#__PURE__*/React.createElement("option", {
+    value: "launch"
+  }, "\u65B0\u5546\u54C1\u30FB\u767A\u58F2")), /*#__PURE__*/React.createElement("select", {
+    value: filterTeam,
+    onChange: function onChange(e) {
+      return setFilterTeam(e.target.value);
+    },
+    className: "px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+  }, /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, "\u5168\u30C1\u30FC\u30E0"), Object.entries(TEAM_CFG).map(function (_ref10) {
+    var _ref11 = _slicedToArray(_ref10, 2),
+      k = _ref11[0],
+      v = _ref11[1];
+    return /*#__PURE__*/React.createElement("option", {
+      key: k,
+      value: k
+    }, v.label);
+  })), /*#__PURE__*/React.createElement("label", {
+    className: "flex items-center gap-1.5 text-xs text-gray-500 cursor-pointer"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    checked: showTentative,
+    onChange: function onChange(e) {
+      return setShowTentative(e.target.checked);
+    },
+    className: "rounded"
+  }), "\u4EEE\u6848\u4EF6\u3092\u8868\u793A")), months.map(function (month) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: month
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center gap-3 mb-3"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "h-px flex-1 bg-gray-200"
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "text-xs font-bold text-gray-500 bg-gray-50 px-3 py-1 rounded-full border border-gray-200"
+    }, monthLabel(month)), /*#__PURE__*/React.createElement("div", {
+      className: "h-px flex-1 bg-gray-200"
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "bg-white rounded-xl border border-gray-200 overflow-hidden"
+    }, /*#__PURE__*/React.createElement("table", {
+      className: "w-full text-sm"
+    }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+      className: "bg-gray-50 border-b border-gray-200"
+    }, /*#__PURE__*/React.createElement("th", {
+      className: "text-left px-4 py-2.5 text-xs font-semibold text-gray-500 w-28"
+    }, "\u671F\u9593"), /*#__PURE__*/React.createElement("th", {
+      className: "text-left px-4 py-2.5 text-xs font-semibold text-gray-500 w-36"
+    }, "\u30BF\u30A4\u30D7"), /*#__PURE__*/React.createElement("th", {
+      className: "text-left px-4 py-2.5 text-xs font-semibold text-gray-500"
+    }, "\u6848\u4EF6\u540D"), /*#__PURE__*/React.createElement("th", {
+      className: "text-left px-4 py-2.5 text-xs font-semibold text-gray-500 w-24"
+    }, "\u30C1\u30FC\u30E0"), /*#__PURE__*/React.createElement("th", {
+      className: "text-left px-4 py-2.5 text-xs font-semibold text-gray-500 w-20"
+    }, "\u30B9\u30C6\u30FC\u30BF\u30B9"), /*#__PURE__*/React.createElement("th", {
+      className: "text-left px-4 py-2.5 text-xs font-semibold text-gray-500 w-24"
+    }, "Backlog"), /*#__PURE__*/React.createElement("th", {
+      className: "text-left px-4 py-2.5 text-xs font-semibold text-gray-500 w-16"
+    }, "\u64CD\u4F5C"))), /*#__PURE__*/React.createElement("tbody", {
+      className: "divide-y divide-gray-100"
+    }, grouped[month].map(function (item) {
+      var active = isActive(item);
+      var past = new Date(item.end) < TODAY;
+      var related = getRelatedBacklog(item);
+      var expanded = expandedId === item.id;
+      return /*#__PURE__*/React.createElement(React.Fragment, {
+        key: item.id
+      }, /*#__PURE__*/React.createElement("tr", {
+        className: "hover:bg-gray-50 transition-colors ".concat(past ? 'opacity-50' : '')
+      }, /*#__PURE__*/React.createElement("td", {
+        className: "px-4 py-3 text-gray-600 text-xs whitespace-nowrap"
+      }, fmtRange(item.start, item.end)), /*#__PURE__*/React.createElement("td", {
+        className: "px-4 py-3"
+      }, /*#__PURE__*/React.createElement(TypeBadge, {
+        type: item.type
+      })), /*#__PURE__*/React.createElement("td", {
+        className: "px-4 py-3"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "flex items-center gap-1.5 flex-wrap"
+      }, item.tentative && /*#__PURE__*/React.createElement(TentativeBadge, null), /*#__PURE__*/React.createElement("span", {
+        className: "font-medium text-gray-900"
+      }, item.title)), item.memo && /*#__PURE__*/React.createElement("div", {
+        className: "text-xs text-gray-400 mt-0.5 line-clamp-1"
+      }, item.memo)), /*#__PURE__*/React.createElement("td", {
+        className: "px-4 py-3"
+      }, /*#__PURE__*/React.createElement(TeamBadge, {
+        team: item.team
+      })), /*#__PURE__*/React.createElement("td", {
+        className: "px-4 py-3"
+      }, past ? /*#__PURE__*/React.createElement("span", {
+        className: "text-xs text-gray-400"
+      }, "\u7D42\u4E86") : active ? /*#__PURE__*/React.createElement("span", {
+        className: "inline-flex px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-700"
+      }, "\u9032\u884C\u4E2D") : /*#__PURE__*/React.createElement("span", {
+        className: "inline-flex px-2 py-0.5 rounded text-xs font-medium bg-sky-100 text-sky-700"
+      }, "\u4E88\u5B9A")), /*#__PURE__*/React.createElement("td", {
+        className: "px-4 py-3"
+      }, related.length > 0 ? /*#__PURE__*/React.createElement("button", {
+        onClick: function onClick() {
+          return setExpandedId(expanded ? null : item.id);
+        },
+        className: "text-xs text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1 whitespace-nowrap"
+      }, "\uD83D\uDD27 ", related.length, "\u4EF6 ", expanded ? '▲' : '▼') : /*#__PURE__*/React.createElement("span", {
+        className: "text-xs text-gray-300"
+      }, "\u2212")), /*#__PURE__*/React.createElement("td", {
+        className: "px-4 py-3"
+      }, /*#__PURE__*/React.createElement("button", {
+        onClick: function onClick() { return openEditCampaign(item); },
+        className: "text-xs text-gray-500 hover:text-blue-600 border border-gray-200 hover:border-blue-300 rounded px-2 py-0.5 transition-colors"
+      }, "\u7DE8\u96C6"))), expanded && /*#__PURE__*/React.createElement("tr", {
+        className: "bg-blue-50"
+      }, /*#__PURE__*/React.createElement("td", {
+        colSpan: 7,
+        className: "px-6 py-3"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "text-xs font-semibold text-blue-700 mb-2"
+      }, "\u95A2\u9023Backlog\u30BF\u30B9\u30AF"), /*#__PURE__*/React.createElement("div", {
+        className: "space-y-1.5"
+      }, related.map(function (t) {
+        return /*#__PURE__*/React.createElement("div", {
+          key: t.id,
+          className: "flex items-center gap-2 flex-wrap"
+        }, /*#__PURE__*/React.createElement(MediaBadge, {
+          type: t.media_type
+        }), /*#__PURE__*/React.createElement("span", {
+          className: "text-sm text-gray-800 font-medium"
+        }, t.title), t.backlog_key && /*#__PURE__*/React.createElement("span", {
+          className: "text-xs text-gray-400 font-mono"
+        }, t.backlog_key), /*#__PURE__*/React.createElement("span", {
+          className: "text-xs text-gray-400"
+        }, fmtRange(t.start, t.end)), t.assignee && /*#__PURE__*/React.createElement("span", {
+          className: "text-xs text-gray-400"
+        }, "\uD83D\uDC64", t.assignee), t.status && /*#__PURE__*/React.createElement("span", {
+          className: "text-xs bg-white border border-gray-200 text-gray-500 px-1.5 py-0.5 rounded"
+        }, t.status));
+      })))));
+    })))));
+  }), items.length === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-xl border border-gray-200 p-8 text-center text-sm text-gray-400"
+  }, "\u8A72\u5F53\u3059\u308B\u6848\u4EF6\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F"), showCampaignForm && /*#__PURE__*/React.createElement("div", {
+    className: "fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center",
+    onClick: function onClick(e) { if (e.target === e.currentTarget) { setShowCampaignForm(false); setEditingCampaign(null); setCampaignForm(EMPTY_CAMPAIGN_FORM); } }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-xl shadow-xl w-full max-w-lg mx-4 p-6 space-y-4"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "text-base font-bold text-gray-900"
+  }, editingCampaign ? '\u4F01\u753B\u3092\u7DE8\u96C6' : '\u4F01\u753B\u3092\u8FFD\u52A0'), /*#__PURE__*/React.createElement("div", {
+    className: "space-y-3"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "block text-xs font-medium text-gray-600 mb-1"
+  }, "\u6848\u4EF6\u540D ", /*#__PURE__*/React.createElement("span", {className: "text-red-400"}, "*")), /*#__PURE__*/React.createElement("input", {
+    type: "text", value: campaignForm.title,
+    onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {title: v}); }); },
+    placeholder: "\u4F8B: \u590F\u306E\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3",
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+  })), /*#__PURE__*/React.createElement("div", {className: "grid grid-cols-2 gap-3"},
+    /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u958B\u59CB\u65E5"),
+      /*#__PURE__*/React.createElement("input", {
+        type: "date", value: campaignForm.start,
+        onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {start: v}); }); },
+        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+      })),
+    /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u7D42\u4E86\u65E5 ", /*#__PURE__*/React.createElement("span", {className: "text-red-400"}, "*")),
+      /*#__PURE__*/React.createElement("input", {
+        type: "date", value: campaignForm.end,
+        onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {end: v}); }); },
+        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+      }))),
+  /*#__PURE__*/React.createElement("div", {className: "grid grid-cols-2 gap-3"},
+    /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u30BF\u30A4\u30D7"),
+      /*#__PURE__*/React.createElement("select", {
+        value: campaignForm.type,
+        onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {type: v}); }); },
+        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+      }, /*#__PURE__*/React.createElement("option", {value: "campaign"}, "\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3"), /*#__PURE__*/React.createElement("option", {value: "launch"}, "\u65B0\u5546\u54C1\u30FB\u767A\u58F2"))),
+    /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u30C1\u30FC\u30E0"),
+      /*#__PURE__*/React.createElement("select", {
+        value: campaignForm.team,
+        onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {team: v}); }); },
+        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+      }, Object.entries(TEAM_CFG).map(function(entry) { return /*#__PURE__*/React.createElement("option", {key: entry[0], value: entry[0]}, entry[1].label); })))),
+  /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u30E1\u30E2"),
+    /*#__PURE__*/React.createElement("input", {
+      type: "text", value: campaignForm.memo,
+      onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {memo: v}); }); },
+      placeholder: "\u5099\u8003\u3084\u30EA\u30F3\u30AF\u306A\u3069",
+      className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+    })),
+  /*#__PURE__*/React.createElement("label", {className: "flex items-center gap-2 text-xs text-gray-600 cursor-pointer"},
+    /*#__PURE__*/React.createElement("input", {
+      type: "checkbox", checked: campaignForm.tentative,
+      onChange: function onChange(e) { var v = e.target.checked; setCampaignForm(function(f) { return _objectSpread({}, f, {tentative: v}); }); },
+      className: "rounded"
+    }), "\u4EEE\u6848\u4EF6")),
+  /*#__PURE__*/React.createElement("div", {className: "flex justify-end gap-2 pt-2"},
+    /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() { setShowCampaignForm(false); setEditingCampaign(null); setCampaignForm(EMPTY_CAMPAIGN_FORM); },
+      className: "px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50"
+    }, "\u30AD\u30E3\u30F3\u30BB\u30EB"),
+    /*#__PURE__*/React.createElement("button", {
+      onClick: handleSaveCampaign,
+      disabled: !campaignForm.title.trim() || !campaignForm.end,
+      className: "px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+    }, editingCampaign ? '\u4FDD\u5B58' : '\u8FFD\u52A0')))));
+};
+
+// ─── SPONSOR PAGE（協賛） ─────────────────────────────────────────────────
+var CAT_BORDER = {
+  all: 'border-l-gray-400',
+  ec: 'border-l-orange-400',
+  vmd: 'border-l-teal-400',
+  sponsor: 'border-l-rose-400',
+  promo: 'border-l-blue-400',
+  design: 'border-l-purple-400',
+  ad: 'border-l-green-400'
+};
+var SponsorDetailPanel = function SponsorDetailPanel(_ref12) {
+  var ev = _ref12.ev,
+    onClose = _ref12.onClose,
+    requests = _ref12.requests,
+    onAddRequest = _ref12.onAddRequest,
+    onRemoveRequest = _ref12.onRemoveRequest,
+    backlogData = _ref12.backlogData;
+  var _useState1 = useState(''),
+    _useState10 = _slicedToArray(_useState1, 2),
+    newReq = _useState10[0],
+    setNewReq = _useState10[1];
+  if (!ev) return null;
+  var relatedTasks = function () {
+    if (!backlogData || !backlogData.length) return [];
+    var keywords = ev.title.replace(/[【】（）()「」・]/g, ' ').split(/\s+/).filter(function (k) {
+      return k.length >= 2;
+    });
+    return backlogData.filter(function (b) {
+      var s = (b.milestone || '') + (b.category || '') + (b.title || '');
+      return keywords.some(function (kw) {
+        return s.includes(kw);
+      });
+    }).slice(0, 10);
+  }();
+  var evRequests = requests[ev.id] || [];
+  var handleAdd = function handleAdd() {
+    if (newReq.trim()) {
+      onAddRequest(ev.id, newReq.trim());
+      setNewReq('');
+    }
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "fixed inset-0 z-50 flex",
+    onClick: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 bg-black bg-opacity-20"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "w-[480px] bg-white shadow-2xl flex flex-col overflow-hidden",
+    onClick: function onClick(e) {
+      return e.stopPropagation();
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "px-6 py-4 border-b border-gray-200 flex items-center justify-between flex-shrink-0"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "font-bold text-gray-900"
+  }, "\u5354\u8CDB\u8A73\u7D30"), /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    className: "w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 text-xl leading-none"
+  }, "\xD7")), /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 overflow-y-auto px-6 py-5 space-y-6"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-2 mb-2 flex-wrap"
+  }, /*#__PURE__*/React.createElement(TypeBadge, {
+    type: ev.type
+  }), /*#__PURE__*/React.createElement(TeamBadge, {
+    team: ev.team
+  }), ev.tentative && /*#__PURE__*/React.createElement(TentativeBadge, null)), /*#__PURE__*/React.createElement("h3", {
+    className: "text-lg font-bold text-gray-900 leading-snug"
+  }, ev.title), /*#__PURE__*/React.createElement("div", {
+    className: "mt-1.5 text-sm text-gray-500"
+  }, "\uD83D\uDCC5 ", fmtRange(ev.start, ev.end))), ev.memo && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2"
+  }, "\u6982\u8981\u30FB\u30E1\u30E2"), /*#__PURE__*/React.createElement("div", {
+    className: "bg-gray-50 rounded-lg p-3 text-sm text-gray-700 leading-relaxed"
+  }, ev.memo)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 flex items-center gap-2"
+  }, "\uD83D\uDCF8 \u7D20\u6750\u30EA\u30AF\u30A8\u30B9\u30C8", evRequests.length > 0 && /*#__PURE__*/React.createElement("span", {
+    className: "bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full text-xs"
+  }, evRequests.length)), evRequests.length === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "text-xs text-gray-400 italic mb-3"
+  }, "SNS\u62C5\u5F53\u304B\u3089\u73FE\u5834\u3078\u306E\u30EA\u30AF\u30A8\u30B9\u30C8\u3092\u8FFD\u52A0\u3067\u304D\u307E\u3059"), /*#__PURE__*/React.createElement("div", {
+    className: "space-y-2 mb-3"
+  }, evRequests.map(function (req, idx) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: idx,
+      className: "flex items-start gap-2 bg-blue-50 border border-blue-100 rounded-lg px-3 py-2"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-blue-400 mt-0.5 flex-shrink-0"
+    }, "\uD83D\uDCF7"), /*#__PURE__*/React.createElement("span", {
+      className: "flex-1 text-sm text-blue-800"
+    }, req), /*#__PURE__*/React.createElement("button", {
+      onClick: function onClick() {
+        return onRemoveRequest(ev.id, idx);
+      },
+      className: "text-blue-300 hover:text-blue-600 text-lg leading-none flex-shrink-0"
+    }, "\xD7"));
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-2"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: newReq,
+    onChange: function onChange(e) {
+      return setNewReq(e.target.value);
+    },
+    onKeyDown: function onKeyDown(e) {
+      return e.key === 'Enter' && handleAdd();
+    },
+    placeholder: "\u4F8B: \u30D6\u30FC\u30B9\u5168\u4F53\u306E\u5F15\u304D\u7D75\u3001\u63A5\u5BA2\u4E2D\u306E\u30A2\u30C3\u30D7...",
+    className: "flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: handleAdd,
+    className: "px-3 py-2 bg-blue-600 text-white text-xs rounded-lg hover:bg-blue-700 transition-colors font-medium"
+  }, "\u8FFD\u52A0"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 flex items-center gap-2"
+  }, "\uD83D\uDD27 \u95A2\u9023Backlog\u30BF\u30B9\u30AF", relatedTasks.length > 0 && /*#__PURE__*/React.createElement("span", {
+    className: "bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded-full text-xs"
+  }, relatedTasks.length)), relatedTasks.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    className: "text-xs text-gray-400 italic"
+  }, "\u95A2\u9023\u30BF\u30B9\u30AF\u306A\u3057\uFF08\u30DE\u30A4\u30EB\u30B9\u30C8\u30FC\u30F3\u4E00\u81F4\u306A\u3057\uFF09") : /*#__PURE__*/React.createElement("div", {
+    className: "space-y-2"
+  }, relatedTasks.map(function (t) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: t.id,
+      className: "flex items-start gap-2 p-2 bg-gray-50 rounded-lg"
+    }, /*#__PURE__*/React.createElement(MediaBadge, {
+      type: t.media_type
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "flex-1 min-w-0"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "text-sm text-gray-800 font-medium leading-tight"
+    }, t.title), /*#__PURE__*/React.createElement("div", {
+      className: "text-xs text-gray-400 mt-0.5"
+    }, t.backlog_key, " \xB7 ", fmtRange(t.start, t.end), t.assignee ? " \xB7 \uD83D\uDC64".concat(t.assignee) : '')), t.status && /*#__PURE__*/React.createElement("span", {
+      className: "text-xs bg-white border border-gray-200 text-gray-500 px-1.5 py-0.5 rounded flex-shrink-0"
+    }, t.status));
+  }))))));
+};
+var SponsorPage = function SponsorPage(_ref13) {
+  var data = _ref13.data,
+    backlogData = _ref13.backlogData;
+  var _useState11 = useState(null),
+    _useState12 = _slicedToArray(_useState11, 2),
+    sel = _useState12[0],
+    setSel = _useState12[1];
+  var _useState13 = useState(''),
+    _useState14 = _slicedToArray(_useState13, 2),
+    filterTeam = _useState14[0],
+    setFilterTeam = _useState14[1];
+  var _useState15 = useState({}),
+    _useState16 = _slicedToArray(_useState15, 2),
+    requests = _useState16[0],
+    setRequests = _useState16[1];
+  var items = data.filter(function (d) {
+    return d.type === 'event';
+  }).filter(function (d) {
+    return new Date(d.end) >= TODAY;
+  }).filter(function (d) {
+    return filterTeam === '' || d.team === filterTeam;
+  }).sort(function (a, b) {
+    return new Date(a.start) - new Date(b.start);
+  });
+  var addRequest = function addRequest(evId, text) {
+    return setRequests(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, evId, [].concat(_toConsumableArray(prev[evId] || []), [text])));
+    });
+  };
+  var removeRequest = function removeRequest(evId, idx) {
+    return setRequests(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, evId, prev[evId].filter(function (_, i) {
+        return i !== idx;
+      })));
+    });
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "space-y-6"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    className: "text-xl font-bold text-gray-900"
+  }, "\u5354\u8CDB"), /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500 mt-0.5 flex items-center gap-2"
+  }, /*#__PURE__*/React.createElement(SourceBadge, null), " \u2014 ", items.length, "\u4EF6\u3000\u30AB\u30FC\u30C9\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u8A73\u7D30\u30FB\u7D20\u6750\u30EA\u30AF\u30A8\u30B9\u30C8")), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-2 items-center flex-wrap"
+  }, ['', 'all', 'ec', 'vmd', 'sponsor', 'promo', 'design', 'ad'].map(function (t) {
+    var _TEAM_CFG$t;
+    return /*#__PURE__*/React.createElement("button", {
+      key: t,
+      onClick: function onClick() {
+        return setFilterTeam(t);
+      },
+      className: "px-3 py-1 rounded-full text-xs font-medium border transition-colors ".concat(filterTeam === t ? 'bg-gray-800 text-white border-gray-800' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50')
+    }, t === '' ? '全て' : ((_TEAM_CFG$t = TEAM_CFG[t]) === null || _TEAM_CFG$t === void 0 ? void 0 : _TEAM_CFG$t.label) || t);
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-4"
+  }, items.map(function (ev) {
+    var past = new Date(ev.end) < TODAY;
+    var reqCount = (requests[ev.id] || []).length;
+    return /*#__PURE__*/React.createElement("div", {
+      key: ev.id,
+      onClick: function onClick() {
+        return setSel(ev);
+      },
+      className: "bg-white rounded-xl border border-gray-200 border-l-4 ".concat(CAT_BORDER[ev.team] || 'border-l-gray-300', " p-4 hover:shadow-md transition-shadow cursor-pointer ").concat(past ? 'opacity-60' : '')
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-start justify-between"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex-1"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center gap-2 mb-1.5 flex-wrap"
+    }, /*#__PURE__*/React.createElement(TeamBadge, {
+      team: ev.team
+    }), ev.tentative && /*#__PURE__*/React.createElement(TentativeBadge, null), reqCount > 0 && /*#__PURE__*/React.createElement("span", {
+      className: "text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full font-medium"
+    }, "\uD83D\uDCF8 ", reqCount, "\u4EF6")), /*#__PURE__*/React.createElement("h3", {
+      className: "font-semibold text-gray-900 text-sm mb-1"
+    }, ev.title), /*#__PURE__*/React.createElement("div", {
+      className: "text-xs text-gray-500"
+    }, "\uD83D\uDCC5 ", fmtRange(ev.start, ev.end)), ev.memo && /*#__PURE__*/React.createElement("div", {
+      className: "text-xs text-gray-400 mt-1 line-clamp-1"
+    }, ev.memo)), /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-blue-500 font-medium ml-3 whitespace-nowrap"
+    }, "\u8A73\u7D30 \u2192")));
+  }), items.length === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "col-span-2 bg-white rounded-xl border border-gray-200 p-8 text-center text-sm text-gray-400"
+  }, "\u8A72\u5F53\u3059\u308B\u30A4\u30D9\u30F3\u30C8\u306F\u3042\u308A\u307E\u305B\u3093")), /*#__PURE__*/React.createElement(SponsorDetailPanel, {
+    key: sel ? sel.id : 'none',
+    ev: sel,
+    onClose: function onClose() {
+      return setSel(null);
+    },
+    requests: requests,
+    onAddRequest: addRequest,
+    onRemoveRequest: removeRequest,
+    backlogData: backlogData
+  }));
+};
+
+// ─── TASKS PAGE ───────────────────────────────────────────────────────────
+var urgencyCls = function urgencyCls(dateStr) {
+  var d = daysUntil(dateStr);
+  if (d < 0) return 'border-l-gray-300';
+  if (d <= 3) return 'border-l-red-500';
+  if (d <= 7) return 'border-l-orange-400';
+  return 'border-l-gray-200';
+};
+var EMPTY_FORM = {
+  title: '',
+  end: '',
+  type: 'deadline',
+  team: 'all',
+  memo: ''
+};
+var EMPTY_CAMPAIGN_FORM = {
+  title: '',
+  start: '',
+  end: '',
+  type: 'campaign',
+  team: 'promo',
+  memo: '',
+  tentative: false
+};
+function _stableId(item) {
+  return item.id || ('s_' + (item.title || '').replace(/\s/g, '_') + '_' + (item.start || ''));
+}
+var TasksPage = function TasksPage(_ref14) {
+  var data = _ref14.data;
+  var _useState17 = useState(''),
+    _useState18 = _slicedToArray(_useState17, 2),
+    filterTeam = _useState18[0],
+    setFilterTeam = _useState18[1];
+  var _useState19 = useState(''),
+    _useState20 = _slicedToArray(_useState19, 2),
+    filterType = _useState20[0],
+    setFilterType = _useState20[1];
+  var _useState21 = useState([]),
+    _useState22 = _slicedToArray(_useState21, 2),
+    manualTasks = _useState22[0],
+    setManualTasks = _useState22[1];
+  var _useState23 = useState(false),
+    _useState24 = _slicedToArray(_useState23, 2),
+    showForm = _useState24[0],
+    setShowForm = _useState24[1];
+  var _useState25 = useState(EMPTY_FORM),
+    _useState26 = _slicedToArray(_useState25, 2),
+    form = _useState26[0],
+    setForm = _useState26[1];
+  var _useState27 = useState(false),
+    _useState28 = _slicedToArray(_useState27, 2),
+    saving = _useState28[0],
+    setSaving = _useState28[1];
+  var handleAdd = /*#__PURE__*/function () {
+    var _ref15 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var task, qs, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            if (!(!form.title.trim() || !form.end)) {
+              _context.n = 1;
+              break;
+            }
+            return _context.a(2);
+          case 1:
+            task = {
+              id: "m_".concat(Date.now()),
+              title: form.title.trim(),
+              start: form.end,
+              end: form.end,
+              type: form.type,
+              team: form.team,
+              memo: form.memo,
+              tentative: false,
+              source: '手動'
+            };
+            setManualTasks(function (prev) {
+              return [].concat(_toConsumableArray(prev), [task]);
+            });
+            setShowForm(false);
+            setForm(EMPTY_FORM);
+            // GASに保存（fire and forget）
+            if (!SHEET_CONFIG.webAppUrl) {
+              _context.n = 6;
+              break;
+            }
+            setSaving(true);
+            _context.p = 2;
+            qs = Object.entries(_objectSpread({
+              action: 'addTask'
+            }, task)).map(function (_ref16) {
+              var _ref17 = _slicedToArray(_ref16, 2),
+                k = _ref17[0],
+                v = _ref17[1];
+              return "".concat(k, "=").concat(encodeURIComponent(v));
+            }).join('&');
+            _context.n = 3;
+            return new Promise(function (resolve) {
+              var cb = "_save_".concat(Date.now());
+              var s = document.createElement('script');
+              s.src = "".concat(SHEET_CONFIG.webAppUrl, "?").concat(qs, "&callback=").concat(cb);
+              window[cb] = function () {
+                delete window[cb];
+                s.remove();
+                resolve();
+              };
+              s.onerror = function () {
+                delete window[cb];
+                s.remove();
+                resolve();
+              };
+              document.head.appendChild(s);
+            });
+          case 3:
+            _context.n = 5;
+            break;
+          case 4:
+            _context.p = 4;
+            _t = _context.v;
+          case 5:
+            setSaving(false);
+          case 6:
+            return _context.a(2);
+        }
+      }, _callee, null, [[2, 4]]);
+    }));
+    return function handleAdd() {
+      return _ref15.apply(this, arguments);
+    };
+  }();
+  var items = [].concat(_toConsumableArray(data), _toConsumableArray(manualTasks)).filter(function (d) {
+    return ['deadline', 'other'].includes(d.type);
+  }).filter(function (d) {
+    return new Date(d.end) >= TODAY;
+  }).filter(function (d) {
+    return filterTeam === '' || d.team === filterTeam;
+  }).filter(function (d) {
+    return filterType === '' || d.type === filterType;
+  }).sort(function (a, b) {
+    return new Date(a.end) - new Date(b.end);
+  });
+  var grouped = {};
+  items.forEach(function (t) {
+    var _t$team;
+    (grouped[_t$team = t.team] || (grouped[_t$team] = [])).push(t);
+  });
+  var teamOrder = ['all', 'ec', 'vmd', 'promo', 'sponsor', 'design', 'ad'];
+  return /*#__PURE__*/React.createElement("div", {
+    className: "space-y-6"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start justify-between"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    className: "text-xl font-bold text-gray-900"
+  }, "\u7D0D\u671F\u30FB\u30BF\u30B9\u30AF"), /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500 mt-0.5 flex items-center gap-2"
+  }, /*#__PURE__*/React.createElement(SourceBadge, null), " \u2014 ", items.length, "\u4EF6")), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setShowForm(function (v) {
+        return !v;
+      });
+    },
+    className: "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+  }, "\uFF0B \u30BF\u30B9\u30AF\u3092\u8FFD\u52A0")), showForm && /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-xl border border-blue-200 p-5 space-y-4"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "text-sm font-semibold text-gray-700"
+  }, "\u65B0\u3057\u3044\u30BF\u30B9\u30AF\u3092\u8FFD\u52A0"), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "col-span-2"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "block text-xs text-gray-500 mb-1"
+  }, "\u30BF\u30A4\u30C8\u30EB ", /*#__PURE__*/React.createElement("span", {
+    className: "text-red-400"
+  }, "*")), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: form.title,
+    onChange: function onChange(e) {
+      return setForm(function (f) {
+        return _objectSpread(_objectSpread({}, f), {}, {
+          title: e.target.value
+        });
+      });
+    },
+    placeholder: "\u30BF\u30B9\u30AF\u540D\u3092\u5165\u529B",
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "block text-xs text-gray-500 mb-1"
+  }, "\u671F\u65E5 ", /*#__PURE__*/React.createElement("span", {
+    className: "text-red-400"
+  }, "*")), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    value: form.end,
+    onChange: function onChange(e) {
+      return setForm(function (f) {
+        return _objectSpread(_objectSpread({}, f), {}, {
+          end: e.target.value
+        });
+      });
+    },
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "block text-xs text-gray-500 mb-1"
+  }, "\u7A2E\u5225"), /*#__PURE__*/React.createElement("select", {
+    value: form.type,
+    onChange: function onChange(e) {
+      return setForm(function (f) {
+        return _objectSpread(_objectSpread({}, f), {}, {
+          type: e.target.value
+        });
+      });
+    },
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+  }, /*#__PURE__*/React.createElement("option", {
+    value: "deadline"
+  }, "\u7D0D\u671F"), /*#__PURE__*/React.createElement("option", {
+    value: "other"
+  }, "\u305D\u306E\u4ED6"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "block text-xs text-gray-500 mb-1"
+  }, "\u30C1\u30FC\u30E0"), /*#__PURE__*/React.createElement("select", {
+    value: form.team,
+    onChange: function onChange(e) {
+      return setForm(function (f) {
+        return _objectSpread(_objectSpread({}, f), {}, {
+          team: e.target.value
+        });
+      });
+    },
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+  }, Object.entries(TEAM_CFG).map(function (_ref18) {
+    var _ref19 = _slicedToArray(_ref18, 2),
+      k = _ref19[0],
+      v = _ref19[1];
+    return /*#__PURE__*/React.createElement("option", {
+      key: k,
+      value: k
+    }, v.label);
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "block text-xs text-gray-500 mb-1"
+  }, "\u30E1\u30E2"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: form.memo,
+    onChange: function onChange(e) {
+      return setForm(function (f) {
+        return _objectSpread(_objectSpread({}, f), {}, {
+          memo: e.target.value
+        });
+      });
+    },
+    placeholder: "\u4EFB\u610F",
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-2 justify-end"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      setShowForm(false);
+      setForm(EMPTY_FORM);
+    },
+    className: "px-4 py-1.5 text-sm text-gray-500 border border-gray-200 rounded-lg hover:bg-gray-50"
+  }, "\u30AD\u30E3\u30F3\u30BB\u30EB"), /*#__PURE__*/React.createElement("button", {
+    onClick: handleAdd,
+    disabled: !form.title.trim() || !form.end || saving,
+    className: "px-4 py-1.5 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+  }, saving ? '保存中...' : '追加'))), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-4 items-center flex-wrap"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-1.5 items-center flex-wrap"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500 font-medium"
+  }, "\u30C1\u30FC\u30E0:"), ['', 'all', 'ec', 'vmd', 'promo', 'sponsor', 'design', 'ad'].map(function (t) {
+    var _TEAM_CFG$t2;
+    return /*#__PURE__*/React.createElement("button", {
+      key: t,
+      onClick: function onClick() {
+        return setFilterTeam(t);
+      },
+      className: "px-3 py-1 rounded-full text-xs font-medium border transition-colors ".concat(filterTeam === t ? 'bg-gray-800 text-white border-gray-800' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50')
+    }, t === '' ? '全て' : ((_TEAM_CFG$t2 = TEAM_CFG[t]) === null || _TEAM_CFG$t2 === void 0 ? void 0 : _TEAM_CFG$t2.label) || t);
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-1.5 items-center"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500 font-medium"
+  }, "\u7A2E\u5225:"), [['', '全て'], ['deadline', '納期'], ['other', 'その他']].map(function (_ref20) {
+    var _ref21 = _slicedToArray(_ref20, 2),
+      v = _ref21[0],
+      l = _ref21[1];
+    return /*#__PURE__*/React.createElement("button", {
+      key: v,
+      onClick: function onClick() {
+        return setFilterType(v);
+      },
+      className: "px-3 py-1 rounded-full text-xs font-medium border transition-colors ".concat(filterType === v ? 'bg-gray-800 text-white border-gray-800' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50')
+    }, l);
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-4 text-xs text-gray-400"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-1"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-3 h-0.5 bg-red-500"
+  }), "3\u65E5\u4EE5\u5185"), /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-1"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-3 h-0.5 bg-orange-400"
+  }), "7\u65E5\u4EE5\u5185")), (filterTeam ? [filterTeam] : teamOrder).map(function (team) {
+    var teamItems = grouped[team];
+    if (!teamItems || teamItems.length === 0) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      key: team
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center gap-2 mb-3"
+    }, /*#__PURE__*/React.createElement(TeamBadge, {
+      team: team
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-gray-400"
+    }, teamItems.length, "\u4EF6")), /*#__PURE__*/React.createElement("div", {
+      className: "space-y-2"
+    }, teamItems.map(function (task) {
+      var d = daysUntil(task.end);
+      return /*#__PURE__*/React.createElement("div", {
+        key: task.id,
+        className: "bg-white rounded-xl border border-gray-200 border-l-4 ".concat(urgencyCls(task.end), " p-4 hover:shadow-sm transition-shadow")
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "flex items-start justify-between gap-3"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "flex-1 min-w-0"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "flex items-center gap-1.5 mb-1 flex-wrap"
+      }, /*#__PURE__*/React.createElement(TypeBadge, {
+        type: task.type
+      }), task.tentative && /*#__PURE__*/React.createElement(TentativeBadge, null), task.source === '手動' && /*#__PURE__*/React.createElement("span", {
+        className: "text-xs text-blue-400 bg-blue-50 px-1.5 py-0.5 rounded"
+      }, "\u624B\u52D5")), /*#__PURE__*/React.createElement("div", {
+        className: "font-medium text-gray-900 text-sm"
+      }, task.title), task.memo && /*#__PURE__*/React.createElement("div", {
+        className: "text-xs text-gray-500 mt-1 line-clamp-1"
+      }, task.memo)), /*#__PURE__*/React.createElement("div", {
+        className: "flex flex-col items-end gap-1 flex-shrink-0"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "text-xs font-semibold ".concat(d <= 3 ? 'text-red-500' : d <= 7 ? 'text-orange-500' : 'text-gray-400')
+      }, d === 0 ? '今日' : "".concat(d, "\u65E5\u5F8C")), /*#__PURE__*/React.createElement("div", {
+        className: "text-xs text-gray-400"
+      }, fmtRange(task.start, task.end)))));
+    })));
+  }), items.length === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-xl border border-gray-200 p-8 text-center text-sm text-gray-400"
+  }, "\u8A72\u5F53\u3059\u308B\u30BF\u30B9\u30AF\u306F\u3042\u308A\u307E\u305B\u3093"));
+};
+
+// ─── CALENDAR PAGE（カレンダー表示 / 直近14日） ───────────────────────────
+var MEDIA_SHORT = {
+  'X': 'X',
+  'Instagram': 'IG',
+  'Facebook': 'FB',
+  'PRTIMES': 'PR',
+  'ブログ': 'Blog',
+  'コーポレートサイト': 'Web',
+  'ポータルサイト': 'EC',
+  '通常企画': '企画',
+  '販促企画': '販促',
+  '配信依頼': '依頼',
+  'タスク': 'Task'
+};
+var MEDIA_ICON_CLS = {
+  'X': 'bg-gray-900 text-white',
+  'Instagram': 'bg-pink-500 text-white',
+  'Facebook': 'bg-blue-600 text-white',
+  'PRTIMES': 'bg-slate-600 text-white',
+  'ブログ': 'bg-amber-500 text-white',
+  'コーポレートサイト': 'bg-teal-600 text-white',
+  'ポータルサイト': 'bg-rose-500 text-white',
+  '通常企画': 'bg-indigo-500 text-white',
+  '販促企画': 'bg-orange-500 text-white',
+  '配信依頼': 'bg-cyan-500 text-white',
+  'タスク': 'bg-gray-400 text-white'
+};
+var DAY_NAMES = ['日', '月', '火', '水', '木', '金', '土'];
+var CalendarPage = function CalendarPage(_ref22) {
+  var backlogData = _ref22.backlogData,
+    loading = _ref22.loading,
+    onReload = _ref22.onReload;
+  var _useState29 = useState(null),
+    _useState30 = _slicedToArray(_useState29, 2),
+    expandedDay = _useState30[0],
+    setExpandedDay = _useState30[1];
+  var days = Array.from({
+    length: 14
+  }, function (_, i) {
+    var d = new Date(TODAY);
+    d.setDate(d.getDate() + i);
+    return d.toISOString().slice(0, 10);
+  });
+  var todayStr = TODAY.toISOString().slice(0, 10);
+  var hasData = backlogData && backlogData.length > 0;
+  var getTasksForDay = function getTasksForDay(dateStr) {
+    if (!hasData) return [];
+    return backlogData.filter(function (t) {
+      return (t.end || t.start) === dateStr;
+    }).sort(function (a, b) {
+      var toMin = function(t) {
+        if (!t) return 9999;
+        var parts = t.split(':');
+        return parseInt(parts[0], 10) * 60 + parseInt(parts[1] || '0', 10);
+      };
+      return toMin(a.delivery_time) - toMin(b.delivery_time);
+    });
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "space-y-6"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start justify-between"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    className: "text-xl font-bold text-gray-900"
+  }, "SNS\u914D\u4FE1"), /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500 mt-0.5 flex items-center gap-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-600"
+  }, "\uD83D\uDD27 Backlog"), "\u76F4\u8FD114\u65E5\u9593\u306E\u914D\u4FE1\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB", hasData && /*#__PURE__*/React.createElement("span", {
+    className: "text-gray-400"
+  }, "\u2014 \u5168", backlogData.length, "\u4EF6"))), /*#__PURE__*/React.createElement("button", {
+    onClick: onReload,
+    disabled: loading,
+    className: "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-50"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: loading ? 'animate-spin inline-block' : ''
+  }, "\uD83D\uDD04"), loading ? '取得中...' : '再読み込み')), !hasData ? /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-xl border border-dashed border-gray-300 p-12 text-center space-y-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "text-4xl"
+  }, "\uD83D\uDCC5"), /*#__PURE__*/React.createElement("div", {
+    className: "font-semibold text-gray-700"
+  }, "Backlog_Data \u304C\u672A\u53D6\u5F97\u3067\u3059"), /*#__PURE__*/React.createElement("div", {
+    className: "text-sm text-gray-500"
+  }, "\u4E0A\u306E\u300C\u518D\u8AAD\u307F\u8FBC\u307F\u300D\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u304B\u3001GAS\u5074\u3067syncBacklogToSheet()\u3092\u5B9F\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002")) : /*#__PURE__*/React.createElement("div", {
+    className: "space-y-1.5"
+  }, days.map(function (dateStr) {
+    var tasks = getTasksForDay(dateStr);
+    var d = new Date(dateStr + 'T12:00:00');
+    var isToday = dateStr === todayStr;
+    var isSat = d.getDay() === 6;
+    var isSun = d.getDay() === 0;
+    var dayLabel = "".concat(d.getMonth() + 1, "/").concat(d.getDate(), "\uFF08").concat(DAY_NAMES[d.getDay()], "\uFF09");
+    var expanded = expandedDay === dateStr;
+    var byMedia = {};
+    tasks.forEach(function (t) {
+      (byMedia[t.media_type] || (byMedia[t.media_type] = [])).push(t);
+    });
+    return /*#__PURE__*/React.createElement("div", {
+      key: dateStr,
+      className: "rounded-xl border transition-all ".concat(isToday ? 'border-blue-300 bg-blue-50' : tasks.length > 0 ? 'border-gray-200 bg-white' : 'border-gray-100 bg-white')
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-start gap-4 px-4 py-3 ".concat(tasks.length > 0 ? 'cursor-pointer' : ''),
+      onClick: function onClick() {
+        return tasks.length > 0 && setExpandedDay(expanded ? null : dateStr);
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "w-32 flex-shrink-0 text-sm font-bold ".concat(isToday ? 'text-blue-600' : isSun ? 'text-red-500' : isSat ? 'text-blue-500' : 'text-gray-700')
+    }, dayLabel, isToday && /*#__PURE__*/React.createElement("span", {
+      className: "ml-1 text-xs font-normal text-blue-400"
+    }, "\u4ECA\u65E5")), tasks.length === 0 ? /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-gray-300 mt-0.5"
+    }, "\u2212") : /*#__PURE__*/React.createElement("div", {
+      className: "flex-1 flex items-center gap-1.5 flex-wrap"
+    }, Object.entries(byMedia).map(function (_ref23) {
+      var _ref24 = _slicedToArray(_ref23, 2),
+        media = _ref24[0],
+        mTasks = _ref24[1];
+      return /*#__PURE__*/React.createElement("span", {
+        key: media,
+        className: "inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-bold ".concat(MEDIA_ICON_CLS[media] || 'bg-gray-400 text-white')
+      }, MEDIA_SHORT[media] || media, /*#__PURE__*/React.createElement("span", {
+        className: "opacity-75 font-normal"
+      }, "\xD7", mTasks.length));
+    })), tasks.length > 0 && /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-gray-400 flex-shrink-0"
+    }, tasks.length, "\u4EF6 ", expanded ? '▲' : '▼')), expanded && /*#__PURE__*/React.createElement("div", {
+      className: "border-t border-gray-100 px-4 py-2"
+    }, tasks.map(function (t) {
+      return /*#__PURE__*/React.createElement("div", {
+        key: t.id,
+        className: "flex items-center gap-2 py-1.5 border-b border-gray-50 last:border-0"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "w-12 text-xs font-mono text-blue-500 flex-shrink-0 text-right"
+      }, t.delivery_time || '\u2014'), /*#__PURE__*/React.createElement(MediaBadge, {
+        type: t.media_type
+      }), /*#__PURE__*/React.createElement("span", {
+        className: "text-sm text-gray-800 font-medium flex-1"
+      }, t.title), t.backlog_key && /*#__PURE__*/React.createElement("span", {
+        className: "text-xs text-gray-400 font-mono"
+      }, t.backlog_key), t.assignee && /*#__PURE__*/React.createElement("span", {
+        className: "text-xs text-gray-400"
+      }, "\uD83D\uDC64", t.assignee), t.status && /*#__PURE__*/React.createElement("span", {
+        className: "text-xs bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded"
+      }, t.status));
+    })));
+  })));
+};
+
+// ─── SPONSOR SHEET SECTION ───────────────────────────────────────────────
+var EMPTY_SPONSOR_FORM = {
+  '案件名':'', '案件ステータス':'検討中', '担当者':'', '開始日':'', '終了日':'',
+  '協賛分類':'', '進捗':'', '確定内容':'', '想定AVE':'', '実績AVE':'',
+  '経費詳細':'', '経費（数値）':'', '協賛金':'', '企画書URL':'', 'メモ':'',
+  '報告対象フラグ':'', '進捗率':'', 'イベントURL':''
+};
+var SPONSOR_STATUS_COLORS = {
+  '確定':    'bg-green-100 text-green-700',
+  '検討中':  'bg-yellow-100 text-yellow-700',
+  '実施済み':'bg-gray-100 text-gray-600',
+  '見送り':  'bg-red-100 text-red-600',
+};
+var SponsorSheetSection = function SponsorSheetSection(_ref_sp) {
+  var sponsorSheetData = _ref_sp.sponsorSheetData,
+    onReload = _ref_sp.onReload,
+    loadingSponsor = _ref_sp.loadingSponsor;
+  var _ss1 = useState(false), showForm = _ss1[0], setShowForm = _ss1[1];
+  var _ss2 = useState(null), editing = _ss2[0], setEditing = _ss2[1];
+  var _ss3 = useState(EMPTY_SPONSOR_FORM), form = _ss3[0], setForm = _ss3[1];
+  var _ss4 = useState(false), saving = _ss4[0], setSaving = _ss4[1];
+  var _ss5 = useState(''), filterStatus = _ss5[0], setFilterStatus = _ss5[1];
+  var openAdd = function() { setEditing(null); setForm(EMPTY_SPONSOR_FORM); setShowForm(true); };
+  var openEdit = function(row) { setEditing(row); setForm(_objectSpread({}, EMPTY_SPONSOR_FORM, row)); setShowForm(true); };
+  var handleSave = function() {
+    if (!form['案件名'].trim()) return;
+    setSaving(true);
+    var params = _objectSpread({}, form, { action: editing ? 'update' : 'add', _row: editing ? editing._row : '' });
+    if (typeof google !== 'undefined' && google.script && google.script.run) {
+      google.script.run
+        .withSuccessHandler(function() { setSaving(false); setShowForm(false); onReload(); })
+        .withFailureHandler(function(e) { setSaving(false); alert('保存失敗: ' + (e.message || e)); })
+        .saveSponsorData(params);
+    }
+  };
+  var fmtNum = function(v) { var n = parseInt(v); return (!v || isNaN(n)) ? '—' : n.toLocaleString() + '円'; };
+  var mkField = function(key, label, type, opts) {
+    var val = form[key] !== undefined ? form[key] : '';
+    var onChange = function(e) { setForm(function(prev) { return _objectSpread({}, prev, _defineProperty({}, key, type === 'checkbox' ? (e.target.checked ? 'TRUE' : '') : e.target.value)); }); };
+    var cls = 'w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500';
+    var lbl = React.createElement('label', { className: 'block text-xs font-medium text-gray-600 mb-1' }, label);
+    if (type === 'select') return React.createElement('div', { key: key }, lbl, React.createElement('select', { value: val, onChange: onChange, className: cls }, React.createElement('option', { value: '' }, '—'), (opts || []).map(function(o) { return React.createElement('option', { key: o, value: o }, o); })));
+    if (type === 'textarea') return React.createElement('div', { key: key }, lbl, React.createElement('textarea', { value: val, onChange: onChange, rows: 2, className: cls }));
+    if (type === 'checkbox') return React.createElement('div', { key: key, className: 'flex items-center gap-2 pt-5' }, React.createElement('input', { type: 'checkbox', checked: val === 'TRUE', onChange: onChange, className: 'w-4 h-4' }), React.createElement('span', { className: 'text-sm text-gray-700' }, label));
+    return React.createElement('div', { key: key }, lbl, React.createElement('input', { type: type || 'text', value: val, onChange: onChange, className: cls }));
+  };
+  var filtered = (sponsorSheetData || []).filter(function(r) { return filterStatus === '' || r['案件ステータス'] === filterStatus; });
+  return React.createElement('section', { className: 'space-y-4 pt-6 border-t border-gray-200 mt-6' },
+    React.createElement('div', { className: 'flex items-center justify-between' },
+      React.createElement('h2', { className: 'text-sm font-semibold text-gray-700' }, '📋 協賛管理シート'),
+      React.createElement('div', { className: 'flex gap-2' },
+        React.createElement('button', { onClick: onReload, className: 'px-3 py-1 text-xs border border-gray-200 rounded-lg hover:bg-gray-50' }, loadingSponsor ? '読込中...' : '↻ 更新'),
+        React.createElement('button', { onClick: openAdd, className: 'px-3 py-1 text-xs font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700' }, '+ 追加')
+      )
+    ),
+    React.createElement('div', { className: 'flex gap-2 flex-wrap' },
+      ['', '検討中', '確定', '実施済み', '見送り'].map(function(s) {
+        return React.createElement('button', { key: s, onClick: function() { setFilterStatus(s); }, className: 'px-3 py-1 rounded-full text-xs font-medium border transition-colors ' + (filterStatus === s ? 'bg-gray-800 text-white border-gray-800' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50') }, s === '' ? '全て' : s);
+      })
+    ),
+    filtered.length === 0
+      ? React.createElement('p', { className: 'text-sm text-gray-400 py-4 text-center' }, loadingSponsor ? '読み込み中...' : 'データがありません')
+      : React.createElement('div', { className: 'grid grid-cols-2 gap-4' },
+          filtered.map(function(row) {
+            var sc = SPONSOR_STATUS_COLORS[row['案件ステータス']] || 'bg-gray-100 text-gray-600';
+            var prog = Math.min(parseInt(row['進捗率']) || 0, 100);
+            return React.createElement('div', { key: row._row || row['ID'] || row['案件名'], className: 'bg-white rounded-xl border border-gray-200 p-4 space-y-2' },
+              React.createElement('div', { className: 'flex items-start justify-between gap-2' },
+                React.createElement('div', { className: 'flex-1' },
+                  React.createElement('div', { className: 'flex items-center gap-2 mb-1 flex-wrap' },
+                    row['案件ステータス'] && React.createElement('span', { className: 'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ' + sc }, row['案件ステータス']),
+                    row['協賛分類'] && React.createElement('span', { className: 'text-xs text-gray-500' }, row['協賛分類'])
+                  ),
+                  React.createElement('h3', { className: 'font-semibold text-gray-900 text-sm' }, row['案件名'] || '（無題）')
+                ),
+                React.createElement('button', { onClick: function() { openEdit(row); }, className: 'text-xs text-blue-500 hover:text-blue-700 whitespace-nowrap flex-shrink-0' }, '編集')
+              ),
+              (row['開始日'] || row['終了日']) && React.createElement('div', { className: 'text-xs text-gray-500' }, '📅 ', fmtRange(row['開始日'], row['終了日'])),
+              row['担当者'] && React.createElement('div', { className: 'text-xs text-gray-400' }, '担当: ', row['担当者']),
+              prog > 0 && React.createElement('div', { className: 'space-y-0.5' },
+                React.createElement('div', { className: 'flex justify-between text-xs text-gray-500' }, React.createElement('span', null, '進捗'), React.createElement('span', null, prog + '%')),
+                React.createElement('div', { className: 'h-1.5 bg-gray-100 rounded-full overflow-hidden' }, React.createElement('div', { className: 'h-full bg-blue-500 rounded-full', style: { width: prog + '%' } }))
+              ),
+              (row['経費（数値）'] || row['協賛金']) && React.createElement('div', { className: 'flex gap-4 text-xs' },
+                React.createElement('span', { className: 'text-gray-500' }, '経費: ', React.createElement('span', { className: 'font-medium text-gray-700' }, fmtNum(row['経費（数値）']))),
+                React.createElement('span', { className: 'text-gray-500' }, '協賛金: ', React.createElement('span', { className: 'font-medium text-gray-700' }, fmtNum(row['協賛金'])))
+              ),
+              row['メモ'] && React.createElement('div', { className: 'text-xs text-gray-400 line-clamp-1' }, row['メモ']),
+              React.createElement('div', { className: 'flex gap-3 text-xs' },
+                row['イベントURL'] && React.createElement('a', { href: row['イベントURL'], target: '_blank', rel: 'noreferrer', className: 'text-blue-500 hover:underline' }, '🔗 イベント'),
+                row['企画書URL'] && React.createElement('a', { href: row['企画書URL'], target: '_blank', rel: 'noreferrer', className: 'text-blue-500 hover:underline' }, '📄 企画書')
+              )
+            );
+          })
+        ),
+    showForm && React.createElement('div', { className: 'fixed inset-0 bg-black/40 flex items-center justify-center z-50', onClick: function(e) { if (e.target === e.currentTarget) setShowForm(false); } },
+      React.createElement('div', { className: 'bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto' },
+        React.createElement('div', { className: 'p-6' },
+          React.createElement('h2', { className: 'text-base font-bold text-gray-900 mb-4' }, editing ? '協賛案件を編集' : '協賛案件を追加'),
+          React.createElement('div', { className: 'grid grid-cols-2 gap-3' },
+            mkField('案件名', '案件名 *', 'text'),
+            mkField('案件ステータス', 'ステータス', 'select', ['検討中', '確定', '実施済み', '見送り']),
+            mkField('担当者', '担当者', 'text'),
+            mkField('協賛分類', '協賛分類', 'text'),
+            mkField('開始日', '開始日', 'date'),
+            mkField('終了日', '終了日', 'date'),
+            mkField('進捗率', '進捗率(%)', 'number'),
+            mkField('進捗', '進捗メモ', 'text'),
+            mkField('想定AVE', '想定AVE(円)', 'number'),
+            mkField('実績AVE', '実績AVE(円)', 'number'),
+            mkField('経費（数値）', '経費(円)', 'number'),
+            mkField('協賛金', '協賛金(円)', 'number'),
+            mkField('イベントURL', 'イベントURL', 'url'),
+            mkField('企画書URL', '企画書URL', 'url'),
+            mkField('報告対象フラグ', '報告対象', 'checkbox')
+          ),
+          React.createElement('div', { className: 'mt-3 space-y-3' },
+            mkField('確定内容', '確定内容', 'textarea'),
+            mkField('メモ', 'メモ', 'textarea'),
+            mkField('経費詳細', '経費詳細', 'text')
+          ),
+          React.createElement('div', { className: 'flex gap-2 justify-end mt-6' },
+            React.createElement('button', { onClick: function() { setShowForm(false); }, className: 'px-4 py-2 text-sm text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-50' }, 'キャンセル'),
+            React.createElement('button', { onClick: handleSave, disabled: saving || !form['案件名'].trim(), className: 'px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40' }, saving ? '保存中...' : '保存')
+          )
+        )
+      )
+    )
+  );
+};
+
+// ─── APP ─────────────────────────────────────────────────────────────────
+var App = function App() {
+  var _useState31 = useState('home'),
+    _useState32 = _slicedToArray(_useState31, 2),
+    page = _useState32[0],
+    setPage = _useState32[1];
+  var _useState33 = useState(RAW_SHEET_DATA),
+    _useState34 = _slicedToArray(_useState33, 2),
+    data = _useState34[0],
+    setData = _useState34[1];
+  var _useState35 = useState([]),
+    _useState36 = _slicedToArray(_useState35, 2),
+    backlogData = _useState36[0],
+    setBacklogData = _useState36[1];
+  var _useState37 = useState(false),
+    _useState38 = _slicedToArray(_useState37, 2),
+    loadingSheet = _useState38[0],
+    setLoadingSheet = _useState38[1];
+  var _useState39 = useState(false),
+    _useState40 = _slicedToArray(_useState39, 2),
+    loadingBacklog = _useState40[0],
+    setLoadingBacklog = _useState40[1];
+  var _useState41 = useState(null),
+    _useState42 = _slicedToArray(_useState41, 2),
+    lastUpdated = _useState42[0],
+    setLastUpdated = _useState42[1];
+  var _useState43 = useState([]),
+    _useState44 = _slicedToArray(_useState43, 2),
+    sponsorSheetData = _useState44[0],
+    setSponsorSheetData = _useState44[1];
+  var _useState45 = useState(false),
+    _useState46 = _slicedToArray(_useState45, 2),
+    loadingSponsor = _useState46[0],
+    setLoadingSponsor = _useState46[1];
+  useEffect(function () {
+    handleReloadCampaigns();
+    handleReloadBacklog();
+    handleReloadSponsor();
+  }, []);
+  var handleReloadCampaigns = useCallback(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+    var fresh, _t2;
+    return _regenerator().w(function (_context2) {
+      while (1) switch (_context2.p = _context2.n) {
+        case 0:
+          setLoadingSheet(true);
+          _context2.p = 1;
+          _context2.n = 2;
+          return fetchSheetData(SHEET_CONFIG.sheets.campaigns.gid);
+        case 2:
+          fresh = _context2.v;
+          if (fresh && fresh.length > 0) {
+            setData(fresh);
+            setLastUpdated(new Date().toLocaleTimeString('ja-JP'));
+          }
+          _context2.n = 4;
+          break;
+        case 3:
+          _context2.p = 3;
+          _t2 = _context2.v;
+          alert('キャンペーンシートの読み込みに失敗しました。\n' + _t2.message);
+        case 4:
+          _context2.p = 4;
+          setLoadingSheet(false);
+          return _context2.f(4);
+        case 5:
+          return _context2.a(2);
+      }
+    }, _callee2, null, [[1, 3, 4, 5]]);
+  })), []);
+  var handleReloadBacklog = useCallback(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+    var _t3, _t4;
+    return _regenerator().w(function (_context3) {
+      while (1) switch (_context3.p = _context3.n) {
+        case 0:
+          setLoadingBacklog(true);
+          _context3.p = 1;
+          _t3 = setBacklogData;
+          _context3.n = 2;
+          return fetchBacklogSheetData();
+        case 2:
+          _t3(_context3.v);
+          _context3.n = 4;
+          break;
+        case 3:
+          _context3.p = 3;
+          _t4 = _context3.v;
+          setBacklogData([]);
+        case 4:
+          _context3.p = 4;
+          setLoadingBacklog(false);
+          return _context3.f(4);
+        case 5:
+          return _context3.a(2);
+      }
+    }, _callee3, null, [[1, 3, 4, 5]]);
+  })), []);
+  var handleReloadSponsor = useCallback(function () {
+    setLoadingSponsor(true);
+    fetchViaGasRun('getSponsorSheetData')
+      .then(function(d) { setSponsorSheetData(Array.isArray(d) ? d : []); })
+      .catch(function() { setSponsorSheetData([]); })
+      .finally(function() { setLoadingSponsor(false); });
+  }, []);
+  var handleReload = useCallback(function () {
+    if (page === 'calendar') handleReloadBacklog();else handleReloadCampaigns();
+  }, [page, handleReloadCampaigns, handleReloadBacklog]);
+  var isLoading = loadingSheet || loadingBacklog;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex min-h-screen bg-gray-50"
+  }, /*#__PURE__*/React.createElement(Sidebar, {
+    page: page,
+    setPage: setPage,
+    onReload: handleReload,
+    loading: isLoading
+  }), /*#__PURE__*/React.createElement("main", {
+    className: "ml-56 flex-1 p-8"
+  }, lastUpdated && /*#__PURE__*/React.createElement("div", {
+    className: "mb-4 text-xs text-gray-400"
+  }, "\u2713 ", lastUpdated, " \u306B\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3\u30B7\u30FC\u30C8\u518D\u8AAD\u307F\u8FBC\u307F\u5B8C\u4E86\uFF08", data.length, "\u4EF6\uFF09"), /*#__PURE__*/React.createElement("div", {
+    className: "max-w-5xl"
+  }, page === 'home' && /*#__PURE__*/React.createElement(HomePage, {
+    data: data
+  }), page === 'campaign' && /*#__PURE__*/React.createElement(CampaignPage, {
+    data: data,
+    backlogData: backlogData,
+    onReload: handleReloadCampaigns
+  }), page === 'sponsor' && /*#__PURE__*/React.createElement("div", { className: "space-y-0" }, /*#__PURE__*/React.createElement(SponsorPage, {
+    data: data,
+    backlogData: backlogData
+  }), /*#__PURE__*/React.createElement(SponsorSheetSection, {
+    sponsorSheetData: sponsorSheetData,
+    onReload: handleReloadSponsor,
+    loadingSponsor: loadingSponsor
+  })), page === 'tasks' && /*#__PURE__*/React.createElement(TasksPage, {
+    data: data
+  }), page === 'calendar' && /*#__PURE__*/React.createElement(CalendarPage, {
+    backlogData: backlogData,
+    loading: loadingBacklog,
+    onReload: handleReloadBacklog
+  }))));
+};
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
+
+</script>
+</body>
+</html>

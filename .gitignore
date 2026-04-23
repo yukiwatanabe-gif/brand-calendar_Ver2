@@ -1,0 +1,14 @@
+# clasp認証情報（個人アカウントのトークンが含まれる）
+.clasprc.json
+
+# VSCode設定（個人設定のため除外）
+.vscode/
+
+# Claude Code設定
+.claude/
+
+# 使用していない旧バージョンのHTML
+対象外/
+
+# Node.js（将来的にnpm使う場合）
+node_modules/
