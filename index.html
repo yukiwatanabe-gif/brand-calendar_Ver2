@@ -2370,7 +2370,12 @@ var App = function App() {
   var handleReloadSponsor = useCallback(function () {
     setLoadingSponsor(true);
     fetchViaGasRun('getSponsorSheetData')
-      .catch(function() { return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('sponsor') : Promise.resolve([]); })
+      .catch(function() {
+        if (!SHEET_CONFIG.webAppUrl) return Promise.resolve([]);
+        return fetch(SHEET_CONFIG.webAppUrl + '?sheet=sponsor')
+          .then(function(r) { return r.json(); })
+          .then(function(d) { return Array.isArray(d) ? d : []; });
+      })
       .then(function(d) { setSponsorSheetData(Array.isArray(d) ? d : []); })
       .catch(function() { setSponsorSheetData([]); })
       .finally(function() { setLoadingSponsor(false); });
