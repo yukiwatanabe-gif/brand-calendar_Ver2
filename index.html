@@ -559,9 +559,9 @@ function _fetchSheetData() {
       while (1) switch (_context5.n) {
         case 0:
           _context5.n = 1;
-          return fetchViaGasRun('getCampaignData').catch(function() {
-            return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('campaigns') : fetchCSV(gid);
-          });
+          return fetchViaGasRun('getCampaignData')
+            .catch(function() { return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('campaigns') : fetchCSV(gid); })
+            .catch(function() { return fetchCSV(gid); });
         case 1:
           _t5 = _context5.v;
           rows = _t5;
@@ -614,9 +614,9 @@ function _fetchBacklogSheetData() {
       while (1) switch (_context6.n) {
         case 0:
           _context6.n = 1;
-          return fetchViaGasRun('getBacklogData').catch(function() {
-            return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('backlog') : fetchCSV(SHEET_CONFIG.sheets.backlog.gid);
-          });
+          return fetchViaGasRun('getBacklogData')
+            .catch(function() { return SHEET_CONFIG.webAppUrl ? fetchViaWebApp('backlog') : fetchCSV(SHEET_CONFIG.sheets.backlog.gid); })
+            .catch(function() { return fetchCSV(SHEET_CONFIG.sheets.backlog.gid); });
         case 1:
           return _context6.a(2, parseBacklogRows(_context6.v));
       }
