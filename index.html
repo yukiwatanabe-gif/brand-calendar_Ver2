@@ -1382,7 +1382,9 @@ var CampaignPage = function CampaignPage(_ref1) {
           className: "text-xs text-gray-400"
         }, "\uD83D\uDC64", t.assignee), t.status && /*#__PURE__*/React.createElement("span", {
           className: "text-xs bg-white border border-gray-200 text-gray-500 px-1.5 py-0.5 rounded"
-        }, t.status));
+        }, t.status), t.delivery_time && /*#__PURE__*/React.createElement("span", {
+          className: "text-xs bg-blue-50 border border-blue-200 text-blue-600 px-1.5 py-0.5 rounded font-mono"
+        }, "⏰ ", t.delivery_time));
       })))));
     })))));
   }), items.length === 0 && /*#__PURE__*/React.createElement("div", {
