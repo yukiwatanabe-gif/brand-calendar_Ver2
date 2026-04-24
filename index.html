@@ -1159,7 +1159,7 @@ var CampaignPage = function CampaignPage(_ref1) {
   })), _toConsumableArray(manualCampaigns.filter(function(m) {
     return !data.some(function(d) { return _stableId(d) === m.id; });
   }))).filter(function (d) {
-    return ['campaign', 'launch'].includes(d.type);
+    return ['campaign', 'launch', 'partner'].includes(d.type);
   }).filter(function (d) {
     return new Date(d.end) >= TODAY;
   }).filter(function (d) {
