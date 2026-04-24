@@ -1163,7 +1163,7 @@ var CampaignPage = function CampaignPage(_ref1) {
   }).filter(function (d) {
     return new Date(d.end) >= TODAY;
   }).filter(function (d) {
-    return filterType === '' || d.type === filterType;
+    return filterType === '' || d.type === filterType || (filterType === 'partner' && d.team === 'partner');
   }).filter(function (d) {
     return filterTeam === '' || d.team === filterTeam;
   }).filter(function (d) {
@@ -1236,7 +1236,9 @@ var CampaignPage = function CampaignPage(_ref1) {
     value: "campaign"
   }, "\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3"), /*#__PURE__*/React.createElement("option", {
     value: "launch"
-  }, "\u65B0\u5546\u54C1\u30FB\u767A\u58F2")), /*#__PURE__*/React.createElement("select", {
+  }, "\u65B0\u5546\u54C1\u30FB\u767A\u58F2"), /*#__PURE__*/React.createElement("option", {
+    value: "partner"
+  }, "法人")), /*#__PURE__*/React.createElement("select", {
     value: filterTeam,
     onChange: function onChange(e) {
       return setFilterTeam(e.target.value);
