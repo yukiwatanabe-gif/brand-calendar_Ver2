@@ -544,7 +544,7 @@ function _saveManualCampaign(params) {
       const rowIdx = idValues.findIndex(v => String(v) === String(params.id));
       if (rowIdx >= 0) {
         const rowNum = rowIdx + 2;
-        const fields = ['title', 'start', 'end', 'type', 'team', 'memo'];
+        const fields = ['title', 'start', 'end', 'type', 'team', 'memo', 'kickoff', 'tentative'];
         fields.forEach(f => { if (col(f) > 0) sheet.getRange(rowNum, col(f)).setValue(params[f] || ''); });
         return { status: 'ok', action: 'updated', id: params.id };
       }
