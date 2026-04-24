@@ -682,10 +682,6 @@ var TEAM_CFG = {
   ad: {
     label: '広告',
     cls: 'bg-green-100 text-green-700 border-green-200'
-  },
-  partner: {
-    label: '法人',
-    cls: 'bg-indigo-100 text-indigo-700 border-indigo-200'
   }
 };
 var TeamBadge = function TeamBadge(_ref) {
@@ -718,6 +714,11 @@ var TYPE_CFG = {
     label: '納期',
     emoji: '⏰',
     cls: 'bg-amber-50 text-amber-700'
+  },
+  partner: {
+    label: '法人',
+    emoji: '🤝',
+    cls: 'bg-indigo-50 text-indigo-700'
   },
   other: {
     label: 'その他',
@@ -868,8 +869,7 @@ var TEAM_BAR = {
   sponsor: 'bg-rose-400',
   promo: 'bg-blue-400',
   design: 'bg-purple-400',
-  ad: 'bg-green-400',
-  partner: 'bg-indigo-400'
+  ad: 'bg-green-400'
 };
 var RoadmapRow = function RoadmapRow(_ref5) {
   var item = _ref5.item,
@@ -1163,7 +1163,7 @@ var CampaignPage = function CampaignPage(_ref1) {
   }).filter(function (d) {
     return new Date(d.end) >= TODAY;
   }).filter(function (d) {
-    return filterType === '' || d.type === filterType || (filterType === 'partner' && d.team === 'partner');
+    return filterType === '' || d.type === filterType;
   }).filter(function (d) {
     return filterTeam === '' || d.team === filterTeam;
   }).filter(function (d) {
@@ -1422,7 +1422,7 @@ var CampaignPage = function CampaignPage(_ref1) {
         value: campaignForm.type,
         onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {type: v}); }); },
         className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
-      }, /*#__PURE__*/React.createElement("option", {value: "campaign"}, "\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3"), /*#__PURE__*/React.createElement("option", {value: "launch"}, "\u65B0\u5546\u54C1\u30FB\u767A\u58F2"))),
+      }, /*#__PURE__*/React.createElement("option", {value: "campaign"}, "\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3"), /*#__PURE__*/React.createElement("option", {value: "launch"}, "\u65B0\u5546\u54C1\u30FB\u767A\u58F2"), /*#__PURE__*/React.createElement("option", {value: "partner"}, "法人"))),
     /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u30C1\u30FC\u30E0"),
       /*#__PURE__*/React.createElement("select", {
         value: campaignForm.team,
@@ -1468,8 +1468,7 @@ var CAT_BORDER = {
   sponsor: 'border-l-rose-400',
   promo: 'border-l-blue-400',
   design: 'border-l-purple-400',
-  ad: 'border-l-green-400',
-  partner: 'border-l-indigo-400'
+  ad: 'border-l-green-400'
 };
 var SponsorDetailPanel = function SponsorDetailPanel(_ref12) {
   var ev = _ref12.ev,
