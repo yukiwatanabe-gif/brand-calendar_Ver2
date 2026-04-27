@@ -878,10 +878,19 @@ var TEAM_BAR = {
   design: 'bg-purple-400',
   ad: 'bg-green-400'
 };
+var TYPE_COLOR_BAR = {
+  campaign: 'bg-green-500',
+  launch: 'bg-blue-500',
+  deadline: 'bg-red-500',
+  event: 'bg-orange-400',
+  partner: 'bg-purple-500',
+  other: 'bg-gray-400'
+};
 var RoadmapRow = function RoadmapRow(_ref5) {
   var item = _ref5.item,
     totalDays = _ref5.totalDays,
-    baseDate = _ref5.baseDate;
+    baseDate = _ref5.baseDate,
+    todayPct = _ref5.todayPct;
   var s = Math.max(0, (new Date(item.start) - baseDate) / 86400000);
   var dur = Math.max(1, (new Date(item.end) - new Date(item.start)) / 86400000 + 1);
   var left = s / totalDays * 100;
@@ -897,20 +906,23 @@ var RoadmapRow = function RoadmapRow(_ref5) {
     className: "flex-1 relative h-5"
   }, /*#__PURE__*/React.createElement("div", {
     className: "absolute inset-0 bg-gray-100 rounded"
-  }), [0, 16.4, 33.3, 49.7, 66.7, 83.6].map(function(pct, i) {
+  }), [0, 14.0, 28.5, 42.5, 57.0, 71.5, 85.5].map(function(pct, i) {
     return /*#__PURE__*/React.createElement("div", {
       key: 'gl' + i,
       className: "absolute inset-y-0 w-px bg-gray-300 opacity-60",
       style: { left: pct + '%' }
     });
-  }), [7.7, 24.0, 41.0, 57.4, 74.3, 90.7].map(function(pct, i) {
+  }), [6.5, 20.6, 35.0, 49.1, 63.6, 78.0, 92.1].map(function(pct, i) {
     return /*#__PURE__*/React.createElement("div", {
       key: 'gm' + i,
       className: "absolute inset-y-0 w-px bg-gray-200 opacity-40",
       style: { left: pct + '%' }
     });
+  }), todayPct != null && /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-y-0 w-0.5 bg-blue-400 opacity-60 z-10",
+    style: { left: todayPct + '%' }
   }), /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-y-1 rounded ".concat(TEAM_BAR[item.team] || 'bg-gray-400', " opacity-75 group-hover:opacity-100 transition-opacity"),
+    className: "absolute inset-y-1 rounded ".concat(TYPE_COLOR_BAR[item.type] || 'bg-gray-400', " opacity-75 group-hover:opacity-100 transition-opacity"),
     style: {
       left: "".concat(left, "%"),
       width: "".concat(Math.max(width, 0.8), "%")
@@ -928,155 +940,268 @@ var RoadmapRow = function RoadmapRow(_ref5) {
 };
 var HomePage = function HomePage(_ref6) {
   var data = _ref6.data;
+  var _useStateTab = useState('calendar'),
+    _useStateTab2 = _slicedToArray(_useStateTab, 2),
+    timelineTab = _useStateTab2[0],
+    setTimelineTab = _useStateTab2[1];
+  var _useStateCal = useState(new Date(TODAY.getFullYear(), TODAY.getMonth(), 1)),
+    _useStateCal2 = _slicedToArray(_useStateCal, 2),
+    calMonth = _useStateCal2[0],
+    setCalMonth = _useStateCal2[1];
+  var _useStateExp = useState(null),
+    _useStateExp2 = _slicedToArray(_useStateExp, 2),
+    expandedDay = _useStateExp2[0],
+    setExpandedDay = _useStateExp2[1];
+
+  var todayYear = TODAY.getFullYear(), todayMonth = TODAY.getMonth(), todayDate = TODAY.getDate();
+  var todayStr = todayYear + '-' + String(todayMonth + 1).padStart(2, '0') + '-' + String(todayDate).padStart(2, '0');
+  var tmr = new Date(todayYear, todayMonth, todayDate + 1);
+  var tomorrowStr = tmr.getFullYear() + '-' + String(tmr.getMonth() + 1).padStart(2, '0') + '-' + String(tmr.getDate()).padStart(2, '0');
+
+  var notices = [];
+  data.forEach(function(d) {
+    if (d.end === tomorrowStr) notices.push({ label: '明日締切', cls: 'bg-red-100 text-red-700', item: d, suffix: '' });
+  });
+  data.forEach(function(d) {
+    if (d.start === todayStr && d.type === 'launch') notices.push({ label: '本日解禁', cls: 'bg-blue-100 text-blue-700', item: d, suffix: '' });
+  });
+  var launchTodaySet = {};
+  data.forEach(function(d) { if (d.start === todayStr && d.type === 'launch') launchTodaySet[d.id] = true; });
+  data.filter(function(d) {
+    return isActive(d) && ['campaign', 'event', 'partner'].includes(d.type) && !launchTodaySet[d.id];
+  }).forEach(function(d) {
+    var left = Math.ceil((new Date(d.end) - TODAY) / 86400000);
+    notices.push({ label: '進行中', cls: 'bg-green-100 text-green-700', item: d, suffix: ' あと' + left + '日' });
+  });
+
   var baseDate = new Date('2026-04-01');
-  var totalDays = 183;
-  var featured = data.filter(function (d) {
-    return ['campaign', 'launch'].includes(d.type);
-  }).filter(function (d) {
-    return isActive(d) || daysUntil(d.start) >= 0 && daysUntil(d.start) <= 14;
-  }).sort(function (a, b) {
-    return new Date(a.start) - new Date(b.start);
-  }).slice(0, 6);
-  var roadmap = data.filter(function (d) {
+  var totalDays = 214;
+  var roadmap = data.filter(function(d) {
     return ['campaign', 'launch', 'event'].includes(d.type);
-  }).filter(function (d) {
-    return new Date(d.start) >= baseDate && new Date(d.start) <= new Date('2026-10-01');
-  }).filter(function (d) {
-    return new Date(d.end) >= TODAY;
-  }).sort(function (a, b) {
+  }).filter(function(d) {
+    return new Date(d.end) >= TODAY && new Date(d.start) <= new Date('2026-10-31');
+  }).sort(function(a, b) {
     return new Date(a.start) - new Date(b.start);
-  }).slice(0, 15);
-  var deadlines = data.filter(function (d) {
+  }).slice(0, 20);
+  var todayGanttPct = Math.max(0, Math.min(100, (TODAY - baseDate) / 86400000 / totalDays * 100));
+  var mLabels = [['4月', 0], ['5月', 14.0], ['6月', 28.5], ['7月', 42.5], ['8月', 57.0], ['9月', 71.5], ['10月', 85.5]];
+  var dLabels = [['1', 0], ['15', 6.5], ['1', 14.0], ['15', 20.6], ['1', 28.5], ['15', 35.0], ['1', 42.5], ['15', 49.1], ['1', 57.0], ['15', 63.6], ['1', 71.5], ['15', 78.0], ['1', 85.5], ['15', 92.1]];
+
+  var calY = calMonth.getFullYear(), calM = calMonth.getMonth();
+  var firstDow = new Date(calY, calM, 1).getDay();
+  var daysInM = new Date(calY, calM + 1, 0).getDate();
+  var prevDaysInM = new Date(calY, calM, 0).getDate();
+  var calMonthStr = calY + '年' + (calM + 1) + '月';
+  var getItemsForDay = function(day) {
+    var dt = new Date(calY, calM, day);
+    return data.filter(function(d) { return new Date(d.start) <= dt && new Date(d.end) >= dt; });
+  };
+  var cells = [];
+  for (var ii = 0; ii < firstDow; ii++) cells.push({ day: prevDaysInM - firstDow + 1 + ii, cur: false });
+  for (var dd = 1; dd <= daysInM; dd++) cells.push({ day: dd, cur: true });
+  var nxt = 1;
+  while (cells.length % 7 !== 0) { cells.push({ day: nxt++, cur: false }); }
+  var weeks = [];
+  for (var ww = 0; ww < cells.length / 7; ww++) weeks.push(cells.slice(ww * 7, ww * 7 + 7));
+
+  var deadlines = data.filter(function(d) {
     return ['deadline', 'launch', 'campaign'].includes(d.type) && isSoon(d);
-  }).sort(function (a, b) {
+  }).sort(function(a, b) {
     return new Date(a.end) - new Date(b.end);
   }).slice(0, 7);
-  return /*#__PURE__*/React.createElement("div", {
-    className: "space-y-8"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
-    className: "text-xl font-bold text-gray-900"
-  }, "\u7DCF\u5408\u30C0\u30C3\u30B7\u30E5\u30DC\u30FC\u30C9"), /*#__PURE__*/React.createElement("p", {
-    className: "text-sm text-gray-500 mt-0.5"
-  }, TODAY.getFullYear() + "年" + (TODAY.getMonth()+1) + "月" + TODAY.getDate() + "日（" + ["日","月","火","水","木","金","土"][TODAY.getDay()] + "）現在 — ", data.length, "件のデータを表示中")), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
-    className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3"
-  }, "\uD83D\uDD25 Featured \u2014 \u9032\u884C\u4E2D\u30FB\u76F4\u8FD114\u65E5\u4EE5\u5185"), /*#__PURE__*/React.createElement("div", {
-    className: "grid grid-cols-3 gap-4"
-  }, featured.map(function (item) {
-    var featuredCardCls = item.kickoff
-      ? "bg-green-50 rounded-2xl border-4 border-green-500 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
-      : item.tentative
-        ? "bg-gray-50 rounded-2xl border border-dashed border-gray-400 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
-        : "bg-white rounded-2xl border border-gray-200 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all";
-    return /*#__PURE__*/React.createElement("div", {
-      key: item.id,
-      className: featuredCardCls
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "flex gap-1.5 flex-wrap mb-3"
-    }, /*#__PURE__*/React.createElement(TypeBadge, {
-      type: item.type
-    }), item.kickoff && /*#__PURE__*/React.createElement("span", {
-      className: "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-700 border border-green-200"
-    }, "✅ キックオフ済"), item.tentative && /*#__PURE__*/React.createElement(TentativeBadge, null)), /*#__PURE__*/React.createElement("h3", {
-      className: "font-semibold text-gray-900 text-sm mb-1.5 leading-snug"
-    }, item.title), item.memo && /*#__PURE__*/React.createElement("p", {
-      className: "text-xs text-gray-500 mb-3 line-clamp-2"
-    }, item.memo), /*#__PURE__*/React.createElement("div", {
-      className: "flex items-center justify-between mt-auto pt-2 border-t border-gray-100"
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "text-xs text-gray-400"
-    }, "\uD83D\uDCC5 ", fmtRange(item.start, item.end)), /*#__PURE__*/React.createElement(TeamBadge, {
-      team: item.team
-    })));
-  }), featured.length === 0 && /*#__PURE__*/React.createElement("div", {
-    className: "col-span-3 bg-white rounded-2xl border border-gray-200 p-6 text-center text-sm text-gray-400"
-  }, "\u76F4\u8FD1\u306E\u6848\u4EF6\u306F\u3042\u308A\u307E\u305B\u3093"))), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
-    className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3"
-  }, "\uD83D\uDCCA \u30ED\u30FC\u30C9\u30DE\u30C3\u30D7\uFF084\u6708\u301C6\u6708\uFF09"), /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-2xl border border-gray-200 p-5"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "flex items-center gap-3 mb-1 pl-40 pr-14"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "flex-1 relative h-8"
-  }, [['4\u6708', 0], ['5\u6708', 33.0], ['6\u6708', 67.0]].map(function (_ref7) {
-    var _ref8 = _slicedToArray(_ref7, 2),
-      lbl = _ref8[0],
-      pct = _ref8[1];
-    return /*#__PURE__*/React.createElement("span", {
-      key: 'm' + lbl,
-      className: "absolute text-xs text-gray-500 font-semibold",
-      style: {
-        left: "".concat(pct, "%"),
-        top: 0
-      }
-    }, lbl);
-  }), [['1', 0], ['15', 7.7], ['1', 16.4], ['15', 24.0], ['1', 33.3], ['15', 41.0], ['1', 49.7], ['15', 57.4], ['1', 66.7], ['15', 74.3], ['1', 83.6], ['15', 90.7]].map(function (_ref7, i) {
-    var _ref8 = _slicedToArray(_ref7, 2),
-      lbl = _ref8[0],
-      pct = _ref8[1];
-    return /*#__PURE__*/React.createElement("span", {
-      key: 'd' + i,
-      className: "absolute text-xs text-gray-400",
-      style: {
-        left: "".concat(pct, "%"),
-        top: '16px'
-      }
-    }, lbl);
-  }))), roadmap.map(function (item) {
-    return /*#__PURE__*/React.createElement(RoadmapRow, {
-      key: item.id,
-      item: item,
-      totalDays: totalDays,
-      baseDate: baseDate
-    });
-  }), roadmap.length === 0 && /*#__PURE__*/React.createElement("div", {
-    className: "text-center text-sm text-gray-400 py-4"
-  }, "\u30C7\u30FC\u30BF\u306A\u3057"), /*#__PURE__*/React.createElement("div", {
-    className: "mt-3 pt-3 border-t border-gray-100 flex flex-wrap gap-3"
-  }, Object.entries(TEAM_CFG).map(function (_ref9) {
-    var _ref0 = _slicedToArray(_ref9, 2),
-      k = _ref0[0],
-      v = _ref0[1];
-    return /*#__PURE__*/React.createElement("div", {
-      key: k,
-      className: "flex items-center gap-1.5"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "w-3 h-3 rounded-sm ".concat(TEAM_BAR[k] || 'bg-gray-400')
-    }), /*#__PURE__*/React.createElement("span", {
-      className: "text-xs text-gray-500"
-    }, v.label));
-  })))), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
-    className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3"
-  }, "\u26A0\uFE0F \u76F4\u8FD1\u306E\u7DE0\u5207\u30FB\u89E3\u7981\uFF0814\u65E5\u4EE5\u5185\uFF09"), /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100"
-  }, deadlines.length === 0 ? /*#__PURE__*/React.createElement("div", {
-    className: "p-6 text-center text-sm text-gray-400"
-  }, "\u76F4\u8FD1\u306E\u7DE0\u5207\u306F\u3042\u308A\u307E\u305B\u3093") : deadlines.map(function (item) {
-    var d = daysUntil(item.end);
-    return /*#__PURE__*/React.createElement("div", {
-      key: item.id,
-      className: "flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "w-10 text-center flex-shrink-0 ".concat(d <= 0 ? 'text-red-600' : d <= 3 ? 'text-red-500' : d <= 7 ? 'text-orange-500' : 'text-gray-400')
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "text-lg font-bold leading-none"
-    }, d <= 0 ? '！' : d), /*#__PURE__*/React.createElement("div", {
-      className: "text-xs"
-    }, d <= 0 ? '期限切' : '日後')), /*#__PURE__*/React.createElement("div", {
-      className: "flex-1 min-w-0"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "text-sm font-medium text-gray-800 truncate flex items-center gap-1"
-    }, item.tentative && /*#__PURE__*/React.createElement("span", {
-      className: "text-yellow-500"
-    }, "\uD83D\uDD3A"), item.title), /*#__PURE__*/React.createElement("div", {
-      className: "text-xs text-gray-400"
-    }, fmtRange(item.start, item.end))), /*#__PURE__*/React.createElement("div", {
-      className: "flex items-center gap-2 flex-shrink-0"
-    }, /*#__PURE__*/React.createElement(TypeBadge, {
-      type: item.type
-    }), /*#__PURE__*/React.createElement(TeamBadge, {
-      team: item.team
-    })));
-  }))));
+
+  var typePairs = [['campaign', 'キャンペーン'], ['launch', '発売・解禁'], ['deadline', '締切'], ['event', 'イベント'], ['partner', 'コラボ・提携'], ['other', 'その他']];
+
+  return /*#__PURE__*/React.createElement("div", { className: "space-y-8" },
+    /*#__PURE__*/React.createElement("div", null,
+      /*#__PURE__*/React.createElement("h1", { className: "text-xl font-bold text-gray-900" }, "総合ダッシュボード"),
+      /*#__PURE__*/React.createElement("p", { className: "text-sm text-gray-500 mt-0.5" },
+        todayYear + "年" + (todayMonth + 1) + "月" + todayDate + "日（" + ["日", "月", "火", "水", "木", "金", "土"][TODAY.getDay()] + "）現在 — ", data.length, "件のデータを表示中"
+      )
+    ),
+    /*#__PURE__*/React.createElement("section", null,
+      /*#__PURE__*/React.createElement("div", { className: "bg-amber-50 border border-amber-200 rounded-2xl p-4" },
+        /*#__PURE__*/React.createElement("div", { className: "flex items-center gap-2 mb-3" },
+          /*#__PURE__*/React.createElement("span", { className: "text-sm font-bold text-amber-800 tracking-wide" }, "📣 TODAY’S NOTICE")
+        ),
+        notices.length === 0
+          ? /*#__PURE__*/React.createElement("p", { className: "text-sm text-amber-600 italic" }, "本日のお知らせはありません")
+          : /*#__PURE__*/React.createElement("div", { className: "space-y-1.5" },
+              notices.map(function(n, i) {
+                return /*#__PURE__*/React.createElement("div", { key: i, className: "flex items-baseline gap-2 text-sm" },
+                  /*#__PURE__*/React.createElement("span", { className: "flex-shrink-0 inline-flex items-center px-1.5 py-0.5 rounded text-xs font-semibold " + n.cls }, n.label),
+                  /*#__PURE__*/React.createElement("span", { className: "text-gray-800" }, n.item.title + n.suffix)
+                );
+              })
+            )
+      )
+    ),
+    /*#__PURE__*/React.createElement("section", null,
+      /*#__PURE__*/React.createElement("div", { className: "flex items-center justify-between mb-3" },
+        /*#__PURE__*/React.createElement("h2", { className: "text-xs font-semibold text-gray-400 uppercase tracking-widest" }, "📅 タイムライン"),
+        /*#__PURE__*/React.createElement("div", { className: "flex rounded-xl border border-gray-200 overflow-hidden text-xs" },
+          /*#__PURE__*/React.createElement("button", {
+            onClick: function() { setTimelineTab('calendar'); },
+            className: "px-3 py-1 font-medium transition-colors " + (timelineTab === 'calendar' ? 'bg-orange-500 text-white' : 'bg-white text-gray-600 hover:bg-gray-50')
+          }, "① カレンダー"),
+          /*#__PURE__*/React.createElement("button", {
+            onClick: function() { setTimelineTab('gantt'); },
+            className: "px-3 py-1 font-medium transition-colors " + (timelineTab === 'gantt' ? 'bg-orange-500 text-white' : 'bg-white text-gray-600 hover:bg-gray-50')
+          }, "② ガント")
+        )
+      ),
+      timelineTab === 'calendar' && /*#__PURE__*/React.createElement("div", { className: "bg-white rounded-2xl border border-gray-200 p-4" },
+        /*#__PURE__*/React.createElement("div", { className: "flex items-center justify-between mb-3" },
+          /*#__PURE__*/React.createElement("button", {
+            onClick: function() { setCalMonth(new Date(calY, calM - 1, 1)); setExpandedDay(null); },
+            className: "w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 text-lg font-bold"
+          }, "‹"),
+          /*#__PURE__*/React.createElement("span", { className: "text-sm font-semibold text-gray-800" }, calMonthStr),
+          /*#__PURE__*/React.createElement("button", {
+            onClick: function() { setCalMonth(new Date(calY, calM + 1, 1)); setExpandedDay(null); },
+            className: "w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 text-lg font-bold"
+          }, "›")
+        ),
+        /*#__PURE__*/React.createElement("div", { className: "grid grid-cols-7 mb-1" },
+          ["日", "月", "火", "水", "木", "金", "土"].map(function(d, i) {
+            return /*#__PURE__*/React.createElement("div", {
+              key: d + i,
+              className: "text-center text-xs font-medium py-1 " + (i === 0 ? 'text-red-500' : i === 6 ? 'text-blue-500' : 'text-gray-500')
+            }, d);
+          })
+        ),
+        /*#__PURE__*/React.createElement("div", { className: "border border-gray-100 rounded-xl overflow-hidden" },
+          weeks.map(function(week, wi) {
+            return /*#__PURE__*/React.createElement("div", { key: wi, className: "grid grid-cols-7" + (wi < weeks.length - 1 ? " border-b border-gray-100" : "") },
+              week.map(function(cell, di) {
+                if (!cell.cur) {
+                  return /*#__PURE__*/React.createElement("div", {
+                    key: di,
+                    className: "min-h-[60px] p-1 bg-gray-50" + (di < 6 ? " border-r border-gray-100" : "")
+                  },
+                    /*#__PURE__*/React.createElement("div", { className: "text-xs text-gray-300 text-right pr-0.5" }, cell.day)
+                  );
+                }
+                var dayItems = getItemsForDay(cell.day);
+                var isToday = calY === todayYear && calM === todayMonth && cell.day === todayDate;
+                var isSun = di === 0, isSat = di === 6;
+                var dayKey = calY + '-' + calM + '-' + cell.day;
+                var isExpanded = expandedDay === dayKey;
+                var shown = dayItems.slice(0, 3);
+                var extra = dayItems.length - 3;
+                return /*#__PURE__*/React.createElement("div", {
+                  key: di,
+                  onClick: function() { setExpandedDay(isExpanded ? null : dayKey); },
+                  className: "min-h-[60px] p-1 cursor-pointer hover:bg-orange-50 transition-colors" + (di < 6 ? " border-r border-gray-100" : "") + (isToday ? " ring-2 ring-inset ring-blue-400" : "")
+                },
+                  /*#__PURE__*/React.createElement("div", {
+                    className: "text-xs font-medium text-right pr-0.5 mb-0.5 " + (isToday ? "text-blue-600 font-bold" : isSun ? "text-red-500" : isSat ? "text-blue-500" : "text-gray-700")
+                  }, cell.day),
+                  shown.map(function(item, ki) {
+                    return /*#__PURE__*/React.createElement("div", { key: ki, className: "flex items-center gap-0.5 mb-0.5" },
+                      /*#__PURE__*/React.createElement("div", { className: "w-1.5 h-1.5 rounded-full flex-shrink-0 " + (TYPE_COLOR_BAR[item.type] || 'bg-gray-400') }),
+                      /*#__PURE__*/React.createElement("span", { className: "text-xs text-gray-700 truncate leading-tight" }, item.title)
+                    );
+                  }),
+                  extra > 0 && /*#__PURE__*/React.createElement("div", { className: "text-xs text-gray-400 mt-0.5" }, "+" + extra + "件"),
+                  isExpanded && dayItems.length > 0 && /*#__PURE__*/React.createElement("div", {
+                    className: "mt-1 pt-1 border-t border-orange-100 space-y-1",
+                    onClick: function(e) { e.stopPropagation(); }
+                  },
+                    dayItems.map(function(item, ki) {
+                      return /*#__PURE__*/React.createElement("div", { key: ki, className: "text-xs leading-snug" },
+                        /*#__PURE__*/React.createElement("div", { className: "flex items-center gap-1" },
+                          /*#__PURE__*/React.createElement("div", { className: "w-1.5 h-1.5 rounded-full flex-shrink-0 " + (TYPE_COLOR_BAR[item.type] || 'bg-gray-400') }),
+                          /*#__PURE__*/React.createElement("span", { className: "font-medium text-gray-800" }, item.title)
+                        ),
+                        item.memo && /*#__PURE__*/React.createElement("div", { className: "text-gray-400 pl-2.5 truncate" }, item.memo)
+                      );
+                    })
+                  )
+                );
+              })
+            );
+          })
+        ),
+        /*#__PURE__*/React.createElement("div", { className: "mt-3 flex flex-wrap gap-3" },
+          typePairs.map(function(pair) {
+            return /*#__PURE__*/React.createElement("div", { key: pair[0], className: "flex items-center gap-1" },
+              /*#__PURE__*/React.createElement("div", { className: "w-2 h-2 rounded-full " + (TYPE_COLOR_BAR[pair[0]] || 'bg-gray-400') }),
+              /*#__PURE__*/React.createElement("span", { className: "text-xs text-gray-500" }, pair[1])
+            );
+          })
+        )
+      ),
+      timelineTab === 'gantt' && /*#__PURE__*/React.createElement("div", { className: "bg-white rounded-2xl border border-gray-200 p-5" },
+        /*#__PURE__*/React.createElement("div", { className: "flex items-center gap-3 mb-1 pl-40 pr-14" },
+          /*#__PURE__*/React.createElement("div", { className: "flex-1 relative h-8" },
+            mLabels.map(function(pair, i) {
+              return /*#__PURE__*/React.createElement("span", {
+                key: 'm' + i,
+                className: "absolute text-xs text-gray-500 font-semibold",
+                style: { left: pair[1] + '%', top: 0 }
+              }, pair[0]);
+            }),
+            dLabels.map(function(pair, i) {
+              return /*#__PURE__*/React.createElement("span", {
+                key: 'd' + i,
+                className: "absolute text-xs text-gray-400",
+                style: { left: pair[1] + '%', top: '16px' }
+              }, pair[0]);
+            }),
+            /*#__PURE__*/React.createElement("div", {
+              className: "absolute top-0 bottom-0 w-0.5 bg-blue-400 opacity-80",
+              style: { left: todayGanttPct + '%' }
+            })
+          )
+        ),
+        roadmap.map(function(item) {
+          return /*#__PURE__*/React.createElement(RoadmapRow, { key: item.id, item: item, totalDays: totalDays, baseDate: baseDate, todayPct: todayGanttPct });
+        }),
+        roadmap.length === 0 && /*#__PURE__*/React.createElement("div", { className: "text-center text-sm text-gray-400 py-4" }, "データなし"),
+        /*#__PURE__*/React.createElement("div", { className: "mt-3 pt-3 border-t border-gray-100 flex flex-wrap gap-3" },
+          typePairs.map(function(pair) {
+            return /*#__PURE__*/React.createElement("div", { key: pair[0], className: "flex items-center gap-1.5" },
+              /*#__PURE__*/React.createElement("div", { className: "w-3 h-3 rounded-sm " + (TYPE_COLOR_BAR[pair[0]] || 'bg-gray-400') }),
+              /*#__PURE__*/React.createElement("span", { className: "text-xs text-gray-500" }, pair[1])
+            );
+          })
+        )
+      )
+    ),
+    /*#__PURE__*/React.createElement("section", null,
+      /*#__PURE__*/React.createElement("h2", { className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3" }, "⚠️ 直近の締切・解禁（14日以内）"),
+      /*#__PURE__*/React.createElement("div", { className: "bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100" },
+        deadlines.length === 0
+          ? /*#__PURE__*/React.createElement("div", { className: "p-6 text-center text-sm text-gray-400" }, "直近の締切はありません")
+          : deadlines.map(function(item) {
+              var dval = daysUntil(item.end);
+              return /*#__PURE__*/React.createElement("div", {
+                key: item.id,
+                className: "flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+              },
+                /*#__PURE__*/React.createElement("div", {
+                  className: "w-10 text-center flex-shrink-0 " + (dval <= 0 ? 'text-red-600' : dval <= 3 ? 'text-red-500' : dval <= 7 ? 'text-orange-500' : 'text-gray-400')
+                },
+                  /*#__PURE__*/React.createElement("div", { className: "text-lg font-bold leading-none" }, dval <= 0 ? '！' : dval),
+                  /*#__PURE__*/React.createElement("div", { className: "text-xs" }, dval <= 0 ? '期限切' : '日後')
+                ),
+                /*#__PURE__*/React.createElement("div", { className: "flex-1 min-w-0" },
+                  /*#__PURE__*/React.createElement("div", { className: "text-sm font-medium text-gray-800 truncate flex items-center gap-1" },
+                    item.tentative && /*#__PURE__*/React.createElement("span", { className: "text-yellow-500" }, "🔺"),
+                    item.title
+                  ),
+                  /*#__PURE__*/React.createElement("div", { className: "text-xs text-gray-400" }, fmtRange(item.start, item.end))
+                ),
+                /*#__PURE__*/React.createElement("div", { className: "flex items-center gap-2 flex-shrink-0" },
+                  /*#__PURE__*/React.createElement(TypeBadge, { type: item.type }),
+                  /*#__PURE__*/React.createElement(TeamBadge, { team: item.team })
+                )
+              );
+            })
+      )
+    )
+  );
 };
 
 // ─── CAMPAIGN PAGE ────────────────────────────────────────────────────────
