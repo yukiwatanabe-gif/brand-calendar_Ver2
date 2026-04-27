@@ -7,14 +7,19 @@
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; background: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif; }
+    body { margin: 0; background: #f4f6f9; font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif; }
     * { box-sizing: border-box; }
     ::-webkit-scrollbar { width: 5px; height: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
     .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
     .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    #root { animation: fadeIn 0.4s ease forwards; }
   </style>
   <script>
   (function() {
@@ -24,12 +29,12 @@
       var overlay = document.createElement('div');
       overlay.style.cssText = 'position:fixed;inset:0;background:#f9fafb;display:flex;align-items:center;justify-content:center;z-index:9999;';
       overlay.innerHTML = '<div style="background:white;border-radius:16px;padding:40px;width:320px;box-shadow:0 4px 24px rgba(0,0,0,0.1);text-align:center;">'
-        + '<div style="font-size:32px;margin-bottom:16px;">🔒</div>'
+        + '<div style="font-size:32px;margin-bottom:16px;">🛋</div>'
         + '<h2 style="font-size:16px;font-weight:700;color:#111;margin:0 0 4px;">ブランド戦略 施策カレンダー</h2>'
         + '<p style="font-size:13px;color:#6b7280;margin:0 0 20px;">パスワードを入力してください</p>'
         + '<input id="pw-in" type="password" placeholder="パスワード" style="width:100%;box-sizing:border-box;padding:10px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:14px;outline:none;margin-bottom:8px;">'
         + '<div id="pw-err" style="color:#ef4444;font-size:12px;height:18px;margin-bottom:8px;"></div>'
-        + '<button id="pw-btn" style="width:100%;padding:10px;background:#1d4ed8;color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">入力</button>'
+        + '<button id="pw-btn" style="width:100%;padding:10px;background:#f97316;color:white;border:none;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;">入力</button>'
         + '</div>';
       document.body.insertBefore(overlay, document.body.firstChild);
       var inp = document.getElementById('pw-in');
@@ -40,6 +45,8 @@
       }
       document.getElementById('pw-btn').addEventListener('click', check);
       inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') check(); });
+      inp.addEventListener('focus', function() { inp.style.borderColor = '#f97316'; inp.style.boxShadow = '0 0 0 3px rgba(249,115,22,0.15)'; });
+      inp.addEventListener('blur', function() { inp.style.borderColor = '#e5e7eb'; inp.style.boxShadow = ''; });
       inp.focus();
     });
   })();
@@ -835,7 +842,7 @@ var Sidebar = function Sidebar(_ref4) {
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-center gap-2.5"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm"
+    className: "w-8 h-8 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold text-sm"
   }, "Y"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "text-xs text-gray-400 leading-none"
   }, "\u30D6\u30E9\u30F3\u30C9\u6226\u7565"), /*#__PURE__*/React.createElement("div", {
@@ -848,14 +855,14 @@ var Sidebar = function Sidebar(_ref4) {
       onClick: function onClick() {
         return setPage(n.id);
       },
-      className: "w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-left transition-colors ".concat(page === n.id ? 'bg-gray-100 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900')
+      className: "w-full flex items-center gap-2.5 px-3 py-2 rounded-2xl text-sm text-left transition-colors ".concat(page === n.id ? 'bg-orange-50 text-orange-700 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900')
     }, /*#__PURE__*/React.createElement("span", null, n.emoji), /*#__PURE__*/React.createElement("span", null, n.label));
   })), /*#__PURE__*/React.createElement("div", {
     className: "px-3 py-3 border-t border-gray-100 space-y-2"
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onReload,
     disabled: loading,
-    className: "w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-50"
+    className: "w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-2xl text-xs text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-50"
   }, /*#__PURE__*/React.createElement("span", {
     className: loading ? 'animate-spin' : ''
   }, "\uD83D\uDD04"), loading ? '取得中...' : 'データ再読み込み')));
@@ -951,15 +958,15 @@ var HomePage = function HomePage(_ref6) {
   }, "\u7DCF\u5408\u30C0\u30C3\u30B7\u30E5\u30DC\u30FC\u30C9"), /*#__PURE__*/React.createElement("p", {
     className: "text-sm text-gray-500 mt-0.5"
   }, TODAY.getFullYear() + "年" + (TODAY.getMonth()+1) + "月" + TODAY.getDate() + "日（" + ["日","月","火","水","木","金","土"][TODAY.getDay()] + "）現在 — ", data.length, "件のデータを表示中")), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
-    className: "text-sm font-semibold text-gray-700 mb-3"
+    className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3"
   }, "\uD83D\uDD25 Featured \u2014 \u9032\u884C\u4E2D\u30FB\u76F4\u8FD114\u65E5\u4EE5\u5185"), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-3 gap-4"
   }, featured.map(function (item) {
     var featuredCardCls = item.kickoff
-      ? "bg-green-50 rounded-xl border-4 border-green-500 p-5 hover:shadow-md transition-shadow"
+      ? "bg-green-50 rounded-2xl border-4 border-green-500 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
       : item.tentative
-        ? "bg-gray-50 rounded-xl border border-dashed border-gray-400 p-5 hover:shadow-md transition-shadow"
-        : "bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md transition-shadow";
+        ? "bg-gray-50 rounded-2xl border border-dashed border-gray-400 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
+        : "bg-white rounded-2xl border border-gray-200 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all";
     return /*#__PURE__*/React.createElement("div", {
       key: item.id,
       className: featuredCardCls
@@ -981,11 +988,11 @@ var HomePage = function HomePage(_ref6) {
       team: item.team
     })));
   }), featured.length === 0 && /*#__PURE__*/React.createElement("div", {
-    className: "col-span-3 bg-white rounded-xl border border-gray-200 p-6 text-center text-sm text-gray-400"
+    className: "col-span-3 bg-white rounded-2xl border border-gray-200 p-6 text-center text-sm text-gray-400"
   }, "\u76F4\u8FD1\u306E\u6848\u4EF6\u306F\u3042\u308A\u307E\u305B\u3093"))), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
-    className: "text-sm font-semibold text-gray-700 mb-3"
+    className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3"
   }, "\uD83D\uDCCA \u30ED\u30FC\u30C9\u30DE\u30C3\u30D7\uFF084\u6708\u301C6\u6708\uFF09"), /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-xl border border-gray-200 p-5"
+    className: "bg-white rounded-2xl border border-gray-200 p-5"
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-center gap-3 mb-1 pl-40 pr-14"
   }, /*#__PURE__*/React.createElement("div", {
@@ -1038,9 +1045,9 @@ var HomePage = function HomePage(_ref6) {
       className: "text-xs text-gray-500"
     }, v.label));
   })))), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h2", {
-    className: "text-sm font-semibold text-gray-700 mb-3"
+    className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3"
   }, "\u26A0\uFE0F \u76F4\u8FD1\u306E\u7DE0\u5207\u30FB\u89E3\u7981\uFF0814\u65E5\u4EE5\u5185\uFF09"), /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-xl border border-gray-200 divide-y divide-gray-100"
+    className: "bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100"
   }, deadlines.length === 0 ? /*#__PURE__*/React.createElement("div", {
     className: "p-6 text-center text-sm text-gray-400"
   }, "\u76F4\u8FD1\u306E\u7DE0\u5207\u306F\u3042\u308A\u307E\u305B\u3093") : deadlines.map(function (item) {
@@ -1213,7 +1220,7 @@ var CampaignPage = function CampaignPage(_ref1) {
     className: "text-sm text-gray-500 mt-0.5 flex items-center gap-2"
   }, /*#__PURE__*/React.createElement(SourceBadge, null), " \u2014 ", items.length, "\u4EF6")), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() { setEditingCampaign(null); setCampaignForm(EMPTY_CAMPAIGN_FORM); setShowCampaignForm(function(v) { return !v; }); },
-    className: "flex items-center gap-1.5 px-3 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+    className: "flex items-center gap-1.5 px-3 py-2 text-sm font-medium bg-orange-500 text-white rounded-2xl hover:bg-orange-600 transition-colors"
   }, savingCampaign ? '\u4FDD\u5B58\u4E2D...' : '+ \u4F01\u753B\u3092\u8FFD\u52A0')), /*#__PURE__*/React.createElement("div", {
     className: "flex gap-3 flex-wrap items-center"
   }, /*#__PURE__*/React.createElement("input", {
@@ -1223,7 +1230,7 @@ var CampaignPage = function CampaignPage(_ref1) {
     onChange: function onChange(e) {
       return setSearch(e.target.value);
     },
-    className: "px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 w-52"
+    className: "px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300 w-52"
   }), /*#__PURE__*/React.createElement("select", {
     value: filterType,
     onChange: function onChange(e) {
@@ -1275,7 +1282,7 @@ var CampaignPage = function CampaignPage(_ref1) {
     }, monthLabel(month)), /*#__PURE__*/React.createElement("div", {
       className: "h-px flex-1 bg-gray-200"
     })), /*#__PURE__*/React.createElement("div", {
-      className: "bg-white rounded-xl border border-gray-200 overflow-hidden"
+      className: "bg-white rounded-2xl border border-gray-200 overflow-hidden"
     }, /*#__PURE__*/React.createElement("table", {
       className: "w-full text-sm"
     }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
@@ -1388,12 +1395,12 @@ var CampaignPage = function CampaignPage(_ref1) {
       })))));
     })))));
   }), items.length === 0 && /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-xl border border-gray-200 p-8 text-center text-sm text-gray-400"
+    className: "bg-white rounded-2xl border border-gray-200 p-8 text-center text-sm text-gray-400"
   }, "\u8A72\u5F53\u3059\u308B\u6848\u4EF6\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F"), showCampaignForm && /*#__PURE__*/React.createElement("div", {
     className: "fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center",
     onClick: function onClick(e) { if (e.target === e.currentTarget) { setShowCampaignForm(false); setEditingCampaign(null); setCampaignForm(EMPTY_CAMPAIGN_FORM); } }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-xl shadow-xl w-full max-w-lg mx-4 p-6 space-y-4"
+    className: "bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 p-6 space-y-4"
   }, /*#__PURE__*/React.createElement("h2", {
     className: "text-base font-bold text-gray-900"
   }, editingCampaign ? '\u4F01\u753B\u3092\u7DE8\u96C6' : '\u4F01\u753B\u3092\u8FFD\u52A0'), /*#__PURE__*/React.createElement("div", {
@@ -1404,19 +1411,19 @@ var CampaignPage = function CampaignPage(_ref1) {
     type: "text", value: campaignForm.title,
     onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {title: v}); }); },
     placeholder: "\u4F8B: \u590F\u306E\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3",
-    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
   })), /*#__PURE__*/React.createElement("div", {className: "grid grid-cols-2 gap-3"},
     /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u958B\u59CB\u65E5"),
       /*#__PURE__*/React.createElement("input", {
         type: "date", value: campaignForm.start,
         onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {start: v}); }); },
-        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
       })),
     /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u7D42\u4E86\u65E5 ", /*#__PURE__*/React.createElement("span", {className: "text-red-400"}, "*")),
       /*#__PURE__*/React.createElement("input", {
         type: "date", value: campaignForm.end,
         onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {end: v}); }); },
-        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+        className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
       }))),
   /*#__PURE__*/React.createElement("div", {className: "grid grid-cols-2 gap-3"},
     /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {className: "block text-xs font-medium text-gray-600 mb-1"}, "\u30BF\u30A4\u30D7"),
@@ -1436,7 +1443,7 @@ var CampaignPage = function CampaignPage(_ref1) {
       type: "text", value: campaignForm.memo,
       onChange: function onChange(e) { var v = e.target.value; setCampaignForm(function(f) { return _objectSpread({}, f, {memo: v}); }); },
       placeholder: "\u5099\u8003\u3084\u30EA\u30F3\u30AF\u306A\u3069",
-      className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+      className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
     })),
   /*#__PURE__*/React.createElement("label", {className: "flex items-center gap-2 text-xs text-gray-600 cursor-pointer"},
     /*#__PURE__*/React.createElement("input", {
@@ -1453,12 +1460,12 @@ var CampaignPage = function CampaignPage(_ref1) {
   /*#__PURE__*/React.createElement("div", {className: "flex justify-end gap-2 pt-2"},
     /*#__PURE__*/React.createElement("button", {
       onClick: function onClick() { setShowCampaignForm(false); setEditingCampaign(null); setCampaignForm(EMPTY_CAMPAIGN_FORM); },
-      className: "px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50"
+      className: "px-4 py-2 text-sm border border-gray-200 rounded-2xl hover:bg-gray-50"
     }, "\u30AD\u30E3\u30F3\u30BB\u30EB"),
     /*#__PURE__*/React.createElement("button", {
       onClick: handleSaveCampaign,
       disabled: !campaignForm.title.trim() || !campaignForm.end,
-      className: "px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+      className: "px-4 py-2 text-sm font-medium bg-orange-500 text-white rounded-2xl hover:bg-orange-600 disabled:opacity-40 disabled:cursor-not-allowed"
     }, editingCampaign ? '\u4FDD\u5B58' : '\u8FFD\u52A0')))));
 };
 
@@ -1570,10 +1577,10 @@ var SponsorDetailPanel = function SponsorDetailPanel(_ref12) {
       return e.key === 'Enter' && handleAdd();
     },
     placeholder: "\u4F8B: \u30D6\u30FC\u30B9\u5168\u4F53\u306E\u5F15\u304D\u7D75\u3001\u63A5\u5BA2\u4E2D\u306E\u30A2\u30C3\u30D7...",
-    className: "flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+    className: "flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
   }), /*#__PURE__*/React.createElement("button", {
     onClick: handleAdd,
-    className: "px-3 py-2 bg-blue-600 text-white text-xs rounded-lg hover:bg-blue-700 transition-colors font-medium"
+    className: "px-3 py-2 bg-orange-500 text-white text-xs rounded-2xl hover:bg-orange-600 transition-colors font-medium"
   }, "\u8FFD\u52A0"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 flex items-center gap-2"
   }, "\uD83D\uDD27 \u95A2\u9023Backlog\u30BF\u30B9\u30AF", relatedTasks.length > 0 && /*#__PURE__*/React.createElement("span", {
@@ -1662,7 +1669,7 @@ var SponsorPage = function SponsorPage(_ref13) {
       onClick: function onClick() {
         return setSel(ev);
       },
-      className: "bg-white rounded-xl border border-gray-200 border-l-4 ".concat(CAT_BORDER[ev.team] || 'border-l-gray-300', " p-4 hover:shadow-md transition-shadow cursor-pointer ").concat(past ? 'opacity-60' : '')
+      className: "bg-white rounded-2xl border border-gray-200 border-l-4 ".concat(CAT_BORDER[ev.team] || 'border-l-gray-300', " p-4 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer ").concat(past ? 'opacity-60' : '')
     }, /*#__PURE__*/React.createElement("div", {
       className: "flex items-start justify-between"
     }, /*#__PURE__*/React.createElement("div", {
@@ -1683,7 +1690,7 @@ var SponsorPage = function SponsorPage(_ref13) {
       className: "text-xs text-blue-500 font-medium ml-3 whitespace-nowrap"
     }, "\u8A73\u7D30 \u2192")));
   }), items.length === 0 && /*#__PURE__*/React.createElement("div", {
-    className: "col-span-2 bg-white rounded-xl border border-gray-200 p-8 text-center text-sm text-gray-400"
+    className: "col-span-2 bg-white rounded-2xl border border-gray-200 p-8 text-center text-sm text-gray-400"
   }, "\u8A72\u5F53\u3059\u308B\u30A4\u30D9\u30F3\u30C8\u306F\u3042\u308A\u307E\u305B\u3093")), /*#__PURE__*/React.createElement(SponsorDetailPanel, {
     key: sel ? sel.id : 'none',
     ev: sel,
@@ -1859,11 +1866,11 @@ var TasksPage = function TasksPage(_ref14) {
         return !v;
       });
     },
-    className: "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+    className: "flex items-center gap-1.5 px-3 py-1.5 rounded-2xl text-xs font-medium bg-orange-500 text-white hover:bg-orange-600 transition-colors"
   }, "\uFF0B \u30BF\u30B9\u30AF\u3092\u8FFD\u52A0")), showForm && /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-xl border border-blue-200 p-5 space-y-4"
+    className: "bg-white rounded-2xl border border-blue-200 p-5 space-y-4"
   }, /*#__PURE__*/React.createElement("h2", {
-    className: "text-sm font-semibold text-gray-700"
+    className: "text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2"
   }, "\u65B0\u3057\u3044\u30BF\u30B9\u30AF\u3092\u8FFD\u52A0"), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-2 gap-3"
   }, /*#__PURE__*/React.createElement("div", {
@@ -1883,7 +1890,7 @@ var TasksPage = function TasksPage(_ref14) {
       });
     },
     placeholder: "\u30BF\u30B9\u30AF\u540D\u3092\u5165\u529B",
-    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
   })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "block text-xs text-gray-500 mb-1"
   }, "\u671F\u65E5 ", /*#__PURE__*/React.createElement("span", {
@@ -1898,7 +1905,7 @@ var TasksPage = function TasksPage(_ref14) {
         });
       });
     },
-    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
   })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "block text-xs text-gray-500 mb-1"
   }, "\u7A2E\u5225"), /*#__PURE__*/React.createElement("select", {
@@ -1948,7 +1955,7 @@ var TasksPage = function TasksPage(_ref14) {
       });
     },
     placeholder: "\u4EFB\u610F",
-    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+    className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
   }))), /*#__PURE__*/React.createElement("div", {
     className: "flex gap-2 justify-end"
   }, /*#__PURE__*/React.createElement("button", {
@@ -1956,11 +1963,11 @@ var TasksPage = function TasksPage(_ref14) {
       setShowForm(false);
       setForm(EMPTY_FORM);
     },
-    className: "px-4 py-1.5 text-sm text-gray-500 border border-gray-200 rounded-lg hover:bg-gray-50"
+    className: "px-4 py-1.5 text-sm text-gray-500 border border-gray-200 rounded-2xl hover:bg-gray-50"
   }, "\u30AD\u30E3\u30F3\u30BB\u30EB"), /*#__PURE__*/React.createElement("button", {
     onClick: handleAdd,
     disabled: !form.title.trim() || !form.end || saving,
-    className: "px-4 py-1.5 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+    className: "px-4 py-1.5 text-sm font-medium bg-orange-500 text-white rounded-2xl hover:bg-orange-600 disabled:opacity-50 transition-colors"
   }, saving ? '保存中...' : '追加'))), /*#__PURE__*/React.createElement("div", {
     className: "flex gap-4 items-center flex-wrap"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2013,12 +2020,12 @@ var TasksPage = function TasksPage(_ref14) {
     }), /*#__PURE__*/React.createElement("span", {
       className: "text-xs text-gray-400"
     }, teamItems.length, "\u4EF6")), /*#__PURE__*/React.createElement("div", {
-      className: "space-y-2"
+      className: "grid grid-cols-2 gap-3"
     }, teamItems.map(function (task) {
       var d = daysUntil(task.end);
       return /*#__PURE__*/React.createElement("div", {
         key: task.id,
-        className: "bg-white rounded-xl border border-gray-200 border-l-4 ".concat(urgencyCls(task.end), " p-4 hover:shadow-sm transition-shadow")
+        className: "bg-white rounded-2xl border border-gray-200 border-l-4 ".concat(urgencyCls(task.end), " p-4 hover:shadow-sm hover:-translate-y-0.5 transition-all")
       }, /*#__PURE__*/React.createElement("div", {
         className: "flex items-start justify-between gap-3"
       }, /*#__PURE__*/React.createElement("div", {
@@ -2042,7 +2049,7 @@ var TasksPage = function TasksPage(_ref14) {
       }, fmtRange(task.start, task.end)))));
     })));
   }), items.length === 0 && /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-xl border border-gray-200 p-8 text-center text-sm text-gray-400"
+    className: "bg-white rounded-2xl border border-gray-200 p-8 text-center text-sm text-gray-400"
   }, "\u8A72\u5F53\u3059\u308B\u30BF\u30B9\u30AF\u306F\u3042\u308A\u307E\u305B\u3093"));
 };
 
@@ -2119,11 +2126,11 @@ var CalendarPage = function CalendarPage(_ref22) {
   }, "\u2014 \u5168", backlogData.length, "\u4EF6"))), /*#__PURE__*/React.createElement("button", {
     onClick: onReload,
     disabled: loading,
-    className: "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-50"
+    className: "flex items-center gap-1.5 px-3 py-1.5 rounded-2xl text-xs text-gray-500 border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-50"
   }, /*#__PURE__*/React.createElement("span", {
     className: loading ? 'animate-spin inline-block' : ''
   }, "\uD83D\uDD04"), loading ? '取得中...' : '再読み込み')), !hasData ? /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-xl border border-dashed border-gray-300 p-12 text-center space-y-3"
+    className: "bg-white rounded-2xl border border-dashed border-gray-300 p-12 text-center space-y-3"
   }, /*#__PURE__*/React.createElement("div", {
     className: "text-4xl"
   }, "\uD83D\uDCC5"), /*#__PURE__*/React.createElement("div", {
@@ -2146,7 +2153,7 @@ var CalendarPage = function CalendarPage(_ref22) {
     });
     return /*#__PURE__*/React.createElement("div", {
       key: dateStr,
-      className: "rounded-xl border transition-all ".concat(isToday ? 'border-blue-300 bg-blue-50' : tasks.length > 0 ? 'border-gray-200 bg-white' : 'border-gray-100 bg-white')
+      className: "rounded-2xl border transition-all ".concat(isToday ? 'border-blue-300 bg-blue-50' : tasks.length > 0 ? 'border-gray-200 bg-white' : 'border-gray-100 bg-white')
     }, /*#__PURE__*/React.createElement("div", {
       className: "flex items-start gap-4 px-4 py-3 ".concat(tasks.length > 0 ? 'cursor-pointer' : ''),
       onClick: function onClick() {
@@ -2244,7 +2251,7 @@ var SponsorSheetSection = function SponsorSheetSection(_ref_sp) {
   var mkField = function(key, label, type, opts) {
     var val = form[key] !== undefined ? form[key] : '';
     var onChange = function(e) { setForm(function(prev) { return _objectSpread({}, prev, _defineProperty({}, key, type === 'checkbox' ? (e.target.checked ? 'TRUE' : '') : e.target.value)); }); };
-    var cls = 'w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500';
+    var cls = 'w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500';
     var lbl = React.createElement('label', { className: 'block text-xs font-medium text-gray-600 mb-1' }, label);
     if (type === 'select') return React.createElement('div', { key: key }, lbl, React.createElement('select', { value: val, onChange: onChange, className: cls }, React.createElement('option', { value: '' }, '—'), (opts || []).map(function(o) { return React.createElement('option', { key: o, value: o }, o); })));
     if (type === 'textarea') return React.createElement('div', { key: key }, lbl, React.createElement('textarea', { value: val, onChange: onChange, rows: 2, className: cls }));
@@ -2254,10 +2261,10 @@ var SponsorSheetSection = function SponsorSheetSection(_ref_sp) {
   var filtered = (sponsorSheetData || []).filter(function(r) { return filterStatus === '' || r['案件ステータス'] === filterStatus; });
   return React.createElement('section', { className: 'space-y-4 pt-6 border-t border-gray-200 mt-6' },
     React.createElement('div', { className: 'flex items-center justify-between' },
-      React.createElement('h2', { className: 'text-sm font-semibold text-gray-700' }, '📋 協賛管理シート'),
+      React.createElement('h2', { className: 'text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2' }, '📋 協賛管理シート'),
       React.createElement('div', { className: 'flex gap-2' },
-        React.createElement('button', { onClick: onReload, className: 'px-3 py-1 text-xs border border-gray-200 rounded-lg hover:bg-gray-50' }, loadingSponsor ? '読込中...' : '↻ 更新'),
-        React.createElement('button', { onClick: openAdd, className: 'px-3 py-1 text-xs font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700' }, '+ 追加')
+        React.createElement('button', { onClick: onReload, className: 'px-3 py-1 text-xs border border-gray-200 rounded-2xl hover:bg-gray-50' }, loadingSponsor ? '読込中...' : '↻ 更新'),
+        React.createElement('button', { onClick: openAdd, className: 'px-3 py-1 text-xs font-medium bg-orange-500 text-white rounded-2xl hover:bg-orange-600' }, '+ 追加')
       )
     ),
     React.createElement('div', { className: 'flex gap-2 flex-wrap' },
@@ -2271,7 +2278,7 @@ var SponsorSheetSection = function SponsorSheetSection(_ref_sp) {
           filtered.map(function(row) {
             var sc = SPONSOR_STATUS_COLORS[row['案件ステータス']] || 'bg-gray-100 text-gray-600';
             var prog = Math.min(parseInt(row['進捗率']) || 0, 100);
-            return React.createElement('div', { key: row._row || row['ID'] || row['案件名'], className: 'bg-white rounded-xl border border-gray-200 p-4 space-y-2' },
+            return React.createElement('div', { key: row._row || row['ID'] || row['案件名'], className: 'bg-white rounded-2xl border border-gray-200 p-4 space-y-2' },
               React.createElement('div', { className: 'flex items-start justify-between gap-2' },
                 React.createElement('div', { className: 'flex-1' },
                   React.createElement('div', { className: 'flex items-center gap-2 mb-1 flex-wrap' },
@@ -2327,8 +2334,8 @@ var SponsorSheetSection = function SponsorSheetSection(_ref_sp) {
             mkField('経費詳細', '経費詳細', 'text')
           ),
           React.createElement('div', { className: 'flex gap-2 justify-end mt-6' },
-            React.createElement('button', { onClick: function() { setShowForm(false); }, className: 'px-4 py-2 text-sm text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-50' }, 'キャンセル'),
-            React.createElement('button', { onClick: handleSave, disabled: saving || !form['案件名'].trim(), className: 'px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40' }, saving ? '保存中...' : '保存')
+            React.createElement('button', { onClick: function() { setShowForm(false); }, className: 'px-4 py-2 text-sm text-gray-600 border border-gray-200 rounded-2xl hover:bg-gray-50' }, 'キャンセル'),
+            React.createElement('button', { onClick: handleSave, disabled: saving || !form['案件名'].trim(), className: 'px-4 py-2 text-sm font-medium bg-orange-500 text-white rounded-2xl hover:bg-orange-600 disabled:opacity-40' }, saving ? '保存中...' : '保存')
           )
         )
       )
