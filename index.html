@@ -564,19 +564,24 @@ function fetchViaWebApp(sheetParam) {
   return new Promise(function (resolve, reject) {
     var cbName = "_jsonp_".concat(Date.now());
     var script = document.createElement('script');
-    var timer = setTimeout(function () {
-      cleanup();
-      reject(new Error('タイムアウト（10秒）'));
-    }, 10000);
-    function cleanup() {
+    var settled = false;
+    function done(data) {
+      if (settled) return;
+      settled = true;
       clearTimeout(timer);
       delete window[cbName];
       if (script.parentNode) script.parentNode.removeChild(script);
+      if (data && data.error) reject(new Error(data.error));
+      else resolve(data);
     }
-    window[cbName] = function (data) {
-      cleanup();
-      if (data && data.error) reject(new Error(data.error));else resolve(data);
-    };
+    var timer = setTimeout(function () {
+      if (settled) return;
+      settled = true;
+      window[cbName] = function () {};
+      if (script.parentNode) script.parentNode.removeChild(script);
+      reject(new Error('タイムアウト（30秒）'));
+    }, 30000);
+    window[cbName] = function (data) { done(data); };
     script.src = "".concat(SHEET_CONFIG.webAppUrl, "?sheet=").concat(sheetParam, "&callback=").concat(cbName);
     document.head.appendChild(script);
   });
