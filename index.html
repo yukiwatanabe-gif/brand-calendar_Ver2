@@ -1793,15 +1793,26 @@ var SponsorDetailPanel = function SponsorDetailPanel(_ref12) {
   if (!ev) return null;
   var relatedTasks = function () {
     if (!backlogData || !backlogData.length) return [];
-    var keywords = ev.title.replace(/[【】（）()「」・]/g, ' ').split(/\s+/).filter(function (k) {
-      return k.length >= 2;
-    });
-    return backlogData.filter(function (b) {
-      var s = (b.milestone || '') + (b.category || '') + (b.title || '');
-      return keywords.some(function (kw) {
-        return s.includes(kw);
+    var SP_STOPWORDS = ['Yogibo', 'yogibo', '2026', '2025', 'Inc', 'の', 'を', 'に', 'は', 'が'];
+    var keywords = ev.title
+      .replace(/\d{4}/g, '')
+      .replace(/[【】（）()「」・×\-]/g, ' ')
+      .split(/\s+/)
+      .filter(function (k) {
+        var minLen = /^[a-zA-Z0-9]+$/.test(k) ? 4 : 2;
+        return k.length >= minLen && !SP_STOPWORDS.some(function(sw) { return sw.toLowerCase() === k.toLowerCase(); });
       });
-    }).slice(0, 10);
+    if (keywords.length === 0) return [];
+    var direct = backlogData.filter(function (b) {
+      var s = b.title || '';
+      return keywords.some(function (kw) { return s.includes(kw); });
+    });
+    var parentKeys = direct.filter(function(b) { return !b.parent_key; }).map(function(b) { return b.backlog_key; }).filter(Boolean);
+    var children = parentKeys.length > 0 ? backlogData.filter(function(b) { return b.parent_key && parentKeys.indexOf(b.parent_key) >= 0; }) : [];
+    var DELIVERY_TYPES = ['メルマガ', 'LINE', 'Instagram', 'X', 'Facebook', 'ブログ', 'PRTIMES', 'コーポレートサイト', 'ポータルサイト', '配信依頼', '通常企画', '販促企画'];
+    if (children.length > 0) return children.slice(0, 20);
+    var deliveryOnly = direct.filter(function(b) { return DELIVERY_TYPES.indexOf(b.media_type) >= 0; });
+    return (deliveryOnly.length > 0 ? deliveryOnly : direct).slice(0, 20);
   }();
   var evRequests = requests[ev.id] || [];
   var handleAdd = function handleAdd() {
