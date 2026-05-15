@@ -1473,16 +1473,38 @@ var CampaignPage = function CampaignPage(_ref1) {
   var BACKLOG_STOPWORDS = ['Yogibo', 'yogibo', '2026', '2025', 'Inc', 'の', 'を', 'に', 'は', 'が'];
   var getRelatedBacklog = function getRelatedBacklog(item) {
     if (!backlogData || !backlogData.length) return [];
-    var keywords = item.title.replace(/[【】（）()「」・×\-]/g, ' ').split(/\s+/).filter(function (k) {
-      return k.length >= 2 && !BACKLOG_STOPWORDS.some(function(sw) { return sw.toLowerCase() === k.toLowerCase(); });
-    });
-    if (keywords.length === 0) return [];
-    return backlogData.filter(function (b) {
-      var searchStr = (b.milestone || '') + (b.category || '') + (b.title || '');
-      return keywords.some(function (kw) {
-        return searchStr.includes(kw);
+    // 年号（4桁数字）を除去してからキーワード抽出（"父の日2026"→"父の日"でマッチ）
+    var keywords = item.title
+      .replace(/\d{4}/g, '')
+      .replace(/[【】（）()「」・×\-]/g, ' ')
+      .split(/\s+/)
+      .filter(function (k) {
+        return k.length >= 2 && !BACKLOG_STOPWORDS.some(function(sw) { return sw.toLowerCase() === k.toLowerCase(); });
       });
-    }).slice(0, 8);
+    if (keywords.length === 0) return [];
+    // Step1: キーワード直接マッチ
+    var directMatches = backlogData.filter(function (b) {
+      var searchStr = (b.milestone || '') + (b.category || '') + (b.title || '');
+      return keywords.some(function (kw) { return searchStr.includes(kw); });
+    });
+    // Step2: マッチした親課題の子課題もすべて含める
+    var parentKeys = directMatches
+      .filter(function(b) { return !b.parent_key; })
+      .map(function(b) { return b.backlog_key; })
+      .filter(Boolean);
+    var childMatches = parentKeys.length > 0
+      ? backlogData.filter(function(b) {
+          return b.parent_key && parentKeys.indexOf(b.parent_key) >= 0;
+        })
+      : [];
+    // 重複除去して結合
+    var seen = {};
+    var combined = directMatches.concat(childMatches).filter(function(b) {
+      if (!b.backlog_key || seen[b.backlog_key]) return false;
+      seen[b.backlog_key] = true;
+      return true;
+    });
+    return combined.slice(0, 20);
   };
   return /*#__PURE__*/React.createElement("div", {
     className: "space-y-6"
