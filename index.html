@@ -1479,7 +1479,8 @@ var CampaignPage = function CampaignPage(_ref1) {
       .replace(/[【】（）()「」・×\-]/g, ' ')
       .split(/\s+/)
       .filter(function (k) {
-        return k.length >= 2 && !BACKLOG_STOPWORDS.some(function(sw) { return sw.toLowerCase() === k.toLowerCase(); });
+        var minLen = /^[a-zA-Z0-9]+$/.test(k) ? 4 : 2; // 英数字のみは4文字以上（短い略語の誤ヒット防止）
+        return k.length >= minLen && !BACKLOG_STOPWORDS.some(function(sw) { return sw.toLowerCase() === k.toLowerCase(); });
       });
     if (keywords.length === 0) return [];
     // Step1: タイトルのみで検索（category/milestone は誤ヒットが多いため除外）
