@@ -1497,14 +1497,17 @@ var CampaignPage = function CampaignPage(_ref1) {
           return b.parent_key && parentKeys.indexOf(b.parent_key) >= 0;
         })
       : [];
-    // 重複除去して結合
-    var seen = {};
-    var combined = directMatches.concat(childMatches).filter(function(b) {
-      if (!b.backlog_key || seen[b.backlog_key]) return false;
-      seen[b.backlog_key] = true;
-      return true;
+    // 子課題がある → 子課題のみ返す（タスク=親課題は非表示）
+    if (childMatches.length > 0) {
+      return childMatches.slice(0, 20);
+    }
+    // 子課題なし → 配信系（メルマガ/LINE/Instagram等）を優先、なければ全件
+    var DELIVERY_TYPES = ['メルマガ', 'LINE', 'Instagram', 'X', 'Facebook', 'ブログ',
+      'PRTIMES', 'コーポレートサイト', 'ポータルサイト', '配信依頼', '通常企画', '販促企画'];
+    var deliveryOnly = directMatches.filter(function(b) {
+      return DELIVERY_TYPES.indexOf(b.media_type) >= 0;
     });
-    return combined.slice(0, 20);
+    return (deliveryOnly.length > 0 ? deliveryOnly : directMatches).slice(0, 20);
   };
   return /*#__PURE__*/React.createElement("div", {
     className: "space-y-6"
