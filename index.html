@@ -1482,9 +1482,9 @@ var CampaignPage = function CampaignPage(_ref1) {
         return k.length >= 2 && !BACKLOG_STOPWORDS.some(function(sw) { return sw.toLowerCase() === k.toLowerCase(); });
       });
     if (keywords.length === 0) return [];
-    // Step1: キーワード直接マッチ（milestone は除外 — 広範なマッチによる誤ヒット防止）
+    // Step1: タイトルのみで検索（category/milestone は誤ヒットが多いため除外）
     var directMatches = backlogData.filter(function (b) {
-      var searchStr = (b.category || '') + (b.title || '');
+      var searchStr = b.title || '';
       return keywords.some(function (kw) { return searchStr.includes(kw); });
     });
     // Step2: マッチした親課題の子課題もすべて含める
