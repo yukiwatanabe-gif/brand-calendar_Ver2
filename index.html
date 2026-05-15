@@ -463,11 +463,15 @@ var fmtFull = function fmtFull(s) {
 var fmtRange = function fmtRange(s, e) {
   return !s ? '' : !e || s === e ? fmt(s) : "".concat(fmt(s), " \u301C ").concat(fmt(e));
 };
+var parseLocalDate = function parseLocalDate(s) {
+  if (!s) return null;
+  return new Date(String(s).replace(/-/g, '/'));
+};
 var daysUntil = function daysUntil(s) {
-  return Math.ceil((new Date(s) - TODAY) / 86400000);
+  return Math.ceil((parseLocalDate(s) - TODAY) / 86400000);
 };
 var isActive = function isActive(d) {
-  return new Date(d.start) <= TODAY && new Date(d.end) >= TODAY;
+  return parseLocalDate(d.start) <= TODAY && parseLocalDate(d.end) >= TODAY;
 };
 var isSoon = function isSoon(d) {
   var day = daysUntil(d.end || d.start);
@@ -980,9 +984,9 @@ var HomePage = function HomePage(_ref6) {
   var roadmap = data.filter(function(d) {
     return ['campaign', 'launch', 'event'].includes(d.type);
   }).filter(function(d) {
-    return new Date(d.end) >= TODAY && new Date(d.start) <= new Date('2026-10-31');
+    return parseLocalDate(d.end) >= TODAY && parseLocalDate(d.start) <= new Date('2026/10/31');
   }).sort(function(a, b) {
-    return new Date(a.start) - new Date(b.start);
+    return parseLocalDate(a.start) - parseLocalDate(b.start);
   }).slice(0, 20);
   var todayGanttPct = Math.max(0, Math.min(100, (TODAY - baseDate) / 86400000 / totalDays * 100));
   var mLabels = [['4月', 0], ['5月', 14.0], ['6月', 28.5], ['7月', 42.5], ['8月', 57.0], ['9月', 71.5], ['10月', 85.5]];
@@ -995,7 +999,7 @@ var HomePage = function HomePage(_ref6) {
   var calMonthStr = calY + '年' + (calM + 1) + '月';
   var getItemsForDay = function(day) {
     var dt = new Date(calY, calM, day);
-    return data.filter(function(d) { return new Date(d.start) <= dt && new Date(d.end) >= dt; });
+    return data.filter(function(d) { return parseLocalDate(d.start) <= dt && parseLocalDate(d.end) >= dt; });
   };
   var cells = [];
   for (var ii = 0; ii < firstDow; ii++) cells.push({ day: prevDaysInM - firstDow + 1 + ii, cur: false });
@@ -1008,7 +1012,7 @@ var HomePage = function HomePage(_ref6) {
   var deadlines = data.filter(function(d) {
     return ['deadline', 'launch', 'campaign'].includes(d.type) && isSoon(d);
   }).sort(function(a, b) {
-    return new Date(a.end) - new Date(b.end);
+    return parseLocalDate(a.end) - parseLocalDate(b.end);
   }).slice(0, 7);
 
   var typePairs = [['campaign', 'キャンペーン'], ['launch', '発売・解禁'], ['deadline', '締切'], ['event', 'イベント'], ['partner', 'コラボ・提携'], ['other', 'その他']];
@@ -1294,7 +1298,7 @@ var CampaignPage = function CampaignPage(_ref1) {
   }))).filter(function (d) {
     return ['campaign', 'launch', 'partner'].includes(d.type);
   }).filter(function (d) {
-    return new Date(d.end) >= TODAY;
+    return parseLocalDate(d.end) >= TODAY;
   }).filter(function (d) {
     return filterType === '' || d.type === filterType;
   }).filter(function (d) {
@@ -1304,7 +1308,7 @@ var CampaignPage = function CampaignPage(_ref1) {
   }).filter(function (d) {
     return search === '' || d.title.includes(search) || (d.memo || '').includes(search);
   }).sort(function (a, b) {
-    return new Date(a.start) - new Date(b.start);
+    return parseLocalDate(a.start) - parseLocalDate(b.start);
   });
   var months = [];
   var grouped = {};
@@ -1433,7 +1437,7 @@ var CampaignPage = function CampaignPage(_ref1) {
       className: "divide-y divide-gray-100"
     }, grouped[month].map(function (item) {
       var active = isActive(item);
-      var past = new Date(item.end) < TODAY;
+      var past = parseLocalDate(item.end) < TODAY;
       var related = getRelatedBacklog(item);
       var expanded = expandedId === item.id;
       var rowCls = item.kickoff
@@ -1752,11 +1756,11 @@ var SponsorPage = function SponsorPage(_ref13) {
   var items = data.filter(function (d) {
     return d.type === 'event';
   }).filter(function (d) {
-    return new Date(d.end) >= TODAY;
+    return parseLocalDate(d.end) >= TODAY;
   }).filter(function (d) {
     return filterTeam === '' || d.team === filterTeam;
   }).sort(function (a, b) {
-    return new Date(a.start) - new Date(b.start);
+    return parseLocalDate(a.start) - parseLocalDate(b.start);
   });
   var addRequest = function addRequest(evId, text) {
     return setRequests(function (prev) {
@@ -1966,13 +1970,13 @@ var TasksPage = function TasksPage(_ref14) {
   var items = [].concat(_toConsumableArray(data), _toConsumableArray(manualTasks)).filter(function (d) {
     return ['deadline', 'other'].includes(d.type);
   }).filter(function (d) {
-    return new Date(d.end) >= TODAY;
+    return parseLocalDate(d.end) >= TODAY;
   }).filter(function (d) {
     return filterTeam === '' || d.team === filterTeam;
   }).filter(function (d) {
     return filterType === '' || d.type === filterType;
   }).sort(function (a, b) {
-    return new Date(a.end) - new Date(b.end);
+    return parseLocalDate(a.end) - parseLocalDate(b.end);
   });
   var grouped = {};
   items.forEach(function (t) {
