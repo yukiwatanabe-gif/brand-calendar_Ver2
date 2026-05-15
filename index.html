@@ -944,7 +944,50 @@ var RoadmapRow = function RoadmapRow(_ref5) {
   })));
 };
 var HomePage = function HomePage(_ref6) {
-  var data = _ref6.data;
+  var data = _ref6.data,
+    onReload = _ref6.onReload;
+  var _useStateHM1 = useState(false),
+    _useStateHM2 = _slicedToArray(_useStateHM1, 2),
+    showModal = _useStateHM2[0],
+    setShowModal = _useStateHM2[1];
+  var _useStateHM3 = useState(null),
+    _useStateHM4 = _slicedToArray(_useStateHM3, 2),
+    editingItem = _useStateHM4[0],
+    setEditingItem = _useStateHM4[1];
+  var _useStateHM5 = useState(EMPTY_CAMPAIGN_FORM),
+    _useStateHM6 = _slicedToArray(_useStateHM5, 2),
+    modalForm = _useStateHM6[0],
+    setModalForm = _useStateHM6[1];
+  var openAdd = function openAdd() {
+    setEditingItem(null);
+    setModalForm(EMPTY_CAMPAIGN_FORM);
+    setShowModal(true);
+  };
+  var openEdit = function openEdit(item) {
+    setEditingItem(_objectSpread({}, item, { id: _stableId(item) }));
+    setModalForm({ title: item.title || '', start: item.start || '', end: item.end || '', type: item.type || 'campaign', team: item.team || 'promo', memo: item.memo || '', tentative: !!item.tentative, kickoff: !!item.kickoff });
+    setShowModal(true);
+  };
+  var closeModal = function closeModal() {
+    setShowModal(false);
+    setEditingItem(null);
+    setModalForm(EMPTY_CAMPAIGN_FORM);
+  };
+  var handleSave = function handleSave() {
+    if (!modalForm.title.trim() || !modalForm.end) return;
+    closeModal();
+    if (SHEET_CONFIG.webAppUrl) {
+      var action = editingItem ? 'updateCampaign' : 'addCampaign';
+      var sid = editingItem ? editingItem.id : '';
+      var rowNum = editingItem && editingItem._row ? editingItem._row : '';
+      var qs = 'action=' + action + '&_row=' + encodeURIComponent(rowNum) + '&id=' + encodeURIComponent(sid) + '&title=' + encodeURIComponent(modalForm.title.trim()) + '&start=' + encodeURIComponent(modalForm.start || '') + '&end=' + encodeURIComponent(modalForm.end || '') + '&type=' + encodeURIComponent(modalForm.type || '') + '&team=' + encodeURIComponent(modalForm.team || '') + '&memo=' + encodeURIComponent(modalForm.memo || '') + '&kickoff=' + encodeURIComponent(modalForm.kickoff ? 'TRUE' : 'FALSE') + '&tentative=' + encodeURIComponent(modalForm.tentative ? 'TRUE' : 'FALSE');
+      var cb = '_hsave_' + Date.now();
+      var s = document.createElement('script');
+      s.src = SHEET_CONFIG.webAppUrl + '?' + qs + '&callback=' + cb;
+      window[cb] = function() { delete window[cb]; s.remove(); if (onReload) onReload(); };
+      document.head.appendChild(s);
+    }
+  };
   var _useStateTab = useState('calendar'),
     _useStateTab2 = _slicedToArray(_useStateTab, 2),
     timelineTab = _useStateTab2[0],
@@ -1057,15 +1100,21 @@ var HomePage = function HomePage(_ref6) {
       ),
       timelineTab === 'calendar' && /*#__PURE__*/React.createElement("div", { className: "bg-white rounded-2xl border border-gray-200 p-4" },
         /*#__PURE__*/React.createElement("div", { className: "flex items-center justify-between mb-3" },
+          /*#__PURE__*/React.createElement("div", { className: "flex items-center gap-1" },
+            /*#__PURE__*/React.createElement("button", {
+              onClick: function() { setCalMonth(new Date(calY, calM - 1, 1)); setExpandedDay(null); },
+              className: "w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 text-lg font-bold"
+            }, "‹"),
+            /*#__PURE__*/React.createElement("span", { className: "text-sm font-semibold text-gray-800 px-1" }, calMonthStr),
+            /*#__PURE__*/React.createElement("button", {
+              onClick: function() { setCalMonth(new Date(calY, calM + 1, 1)); setExpandedDay(null); },
+              className: "w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 text-lg font-bold"
+            }, "›")
+          ),
           /*#__PURE__*/React.createElement("button", {
-            onClick: function() { setCalMonth(new Date(calY, calM - 1, 1)); setExpandedDay(null); },
-            className: "w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 text-lg font-bold"
-          }, "‹"),
-          /*#__PURE__*/React.createElement("span", { className: "text-sm font-semibold text-gray-800" }, calMonthStr),
-          /*#__PURE__*/React.createElement("button", {
-            onClick: function() { setCalMonth(new Date(calY, calM + 1, 1)); setExpandedDay(null); },
-            className: "w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 text-lg font-bold"
-          }, "›")
+            onClick: openAdd,
+            className: "flex items-center gap-1 px-3 py-1 text-xs font-medium bg-orange-500 text-white rounded-full hover:bg-orange-600"
+          }, "+ 追加")
         ),
         /*#__PURE__*/React.createElement("div", { className: "grid grid-cols-7 mb-1" },
           ["日", "月", "火", "水", "木", "金", "土"].map(function(d, i) {
@@ -1114,10 +1163,15 @@ var HomePage = function HomePage(_ref6) {
                     onClick: function(e) { e.stopPropagation(); }
                   },
                     dayItems.map(function(item, ki) {
-                      return /*#__PURE__*/React.createElement("div", { key: ki, className: "text-xs leading-snug" },
+                      return /*#__PURE__*/React.createElement("div", {
+                        key: ki,
+                        className: "text-xs leading-snug rounded px-1 py-0.5 cursor-pointer hover:bg-orange-100 -mx-1",
+                        onClick: function(e) { e.stopPropagation(); openEdit(item); }
+                      },
                         /*#__PURE__*/React.createElement("div", { className: "flex items-center gap-1" },
                           /*#__PURE__*/React.createElement("div", { className: "w-1.5 h-1.5 rounded-full flex-shrink-0 " + (TYPE_COLOR_BAR[item.type] || 'bg-gray-400') }),
-                          /*#__PURE__*/React.createElement("span", { className: "font-medium text-gray-800" }, item.title)
+                          /*#__PURE__*/React.createElement("span", { className: "font-medium text-gray-800" }, item.title),
+                          /*#__PURE__*/React.createElement("span", { className: "ml-auto text-gray-300 text-[10px]" }, "✎")
                         ),
                         item.memo && /*#__PURE__*/React.createElement("div", { className: "text-gray-400 pl-2.5 truncate" }, item.memo)
                       );
@@ -1205,7 +1259,95 @@ var HomePage = function HomePage(_ref6) {
               );
             })
       )
-    )
+    ),
+    showModal && /*#__PURE__*/React.createElement("div", {
+      className: "fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center",
+      onClick: function(e) { if (e.target === e.currentTarget) closeModal(); }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 p-6 space-y-4"
+    },
+      /*#__PURE__*/React.createElement("h2", { className: "text-base font-bold text-gray-900" }, editingItem ? '案件を編集' : '案件を追加'),
+      /*#__PURE__*/React.createElement("div", { className: "space-y-3" },
+        /*#__PURE__*/React.createElement("div", null,
+          /*#__PURE__*/React.createElement("label", { className: "block text-xs font-medium text-gray-600 mb-1" }, "案件名 ", /*#__PURE__*/React.createElement("span", { className: "text-red-400" }, "*")),
+          /*#__PURE__*/React.createElement("input", { type: "text", value: modalForm.title,
+            onChange: function(e) { var v = e.target.value; setModalForm(function(f) { return _objectSpread({}, f, {title: v}); }); },
+            placeholder: "例: 夏のキャンペーン",
+            className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
+          })
+        ),
+        /*#__PURE__*/React.createElement("div", { className: "grid grid-cols-2 gap-3" },
+          /*#__PURE__*/React.createElement("div", null,
+            /*#__PURE__*/React.createElement("label", { className: "block text-xs font-medium text-gray-600 mb-1" }, "開始日"),
+            /*#__PURE__*/React.createElement("input", { type: "date", value: modalForm.start,
+              onChange: function(e) { var v = e.target.value; setModalForm(function(f) { return _objectSpread({}, f, {start: v}); }); },
+              className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
+            })
+          ),
+          /*#__PURE__*/React.createElement("div", null,
+            /*#__PURE__*/React.createElement("label", { className: "block text-xs font-medium text-gray-600 mb-1" }, "終了日 ", /*#__PURE__*/React.createElement("span", { className: "text-red-400" }, "*")),
+            /*#__PURE__*/React.createElement("input", { type: "date", value: modalForm.end,
+              onChange: function(e) { var v = e.target.value; setModalForm(function(f) { return _objectSpread({}, f, {end: v}); }); },
+              className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
+            })
+          )
+        ),
+        /*#__PURE__*/React.createElement("div", { className: "grid grid-cols-2 gap-3" },
+          /*#__PURE__*/React.createElement("div", null,
+            /*#__PURE__*/React.createElement("label", { className: "block text-xs font-medium text-gray-600 mb-1" }, "タイプ"),
+            /*#__PURE__*/React.createElement("select", { value: modalForm.type,
+              onChange: function(e) { var v = e.target.value; setModalForm(function(f) { return _objectSpread({}, f, {type: v}); }); },
+              className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+            },
+              /*#__PURE__*/React.createElement("option", { value: "campaign" }, "キャンペーン"),
+              /*#__PURE__*/React.createElement("option", { value: "launch" }, "新商品・発売"),
+              /*#__PURE__*/React.createElement("option", { value: "partner" }, "法人"),
+              /*#__PURE__*/React.createElement("option", { value: "event" }, "イベント"),
+              /*#__PURE__*/React.createElement("option", { value: "deadline" }, "締切"),
+              /*#__PURE__*/React.createElement("option", { value: "other" }, "その他")
+            )
+          ),
+          /*#__PURE__*/React.createElement("div", null,
+            /*#__PURE__*/React.createElement("label", { className: "block text-xs font-medium text-gray-600 mb-1" }, "チーム"),
+            /*#__PURE__*/React.createElement("select", { value: modalForm.team,
+              onChange: function(e) { var v = e.target.value; setModalForm(function(f) { return _objectSpread({}, f, {team: v}); }); },
+              className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none bg-white"
+            }, Object.entries(TEAM_CFG).map(function(entry) { return /*#__PURE__*/React.createElement("option", { key: entry[0], value: entry[0] }, entry[1].label); }))
+          )
+        ),
+        /*#__PURE__*/React.createElement("div", null,
+          /*#__PURE__*/React.createElement("label", { className: "block text-xs font-medium text-gray-600 mb-1" }, "メモ"),
+          /*#__PURE__*/React.createElement("input", { type: "text", value: modalForm.memo,
+            onChange: function(e) { var v = e.target.value; setModalForm(function(f) { return _objectSpread({}, f, {memo: v}); }); },
+            placeholder: "備考やリンクなど",
+            className: "w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
+          })
+        ),
+        /*#__PURE__*/React.createElement("div", { className: "flex items-center gap-4" },
+          /*#__PURE__*/React.createElement("label", { className: "flex items-center gap-2 text-xs text-gray-600 cursor-pointer" },
+            /*#__PURE__*/React.createElement("input", { type: "checkbox", checked: modalForm.tentative,
+              onChange: function(e) { var v = e.target.checked; setModalForm(function(f) { return _objectSpread({}, f, {tentative: v}); }); },
+              className: "rounded"
+            }), "仮案件"),
+          /*#__PURE__*/React.createElement("label", { className: "flex items-center gap-2 text-xs text-gray-600 cursor-pointer" },
+            /*#__PURE__*/React.createElement("input", { type: "checkbox", checked: modalForm.kickoff,
+              onChange: function(e) { var v = e.target.checked; setModalForm(function(f) { return _objectSpread({}, f, {kickoff: v}); }); },
+              className: "rounded"
+            }), "キックオフ済")
+        )
+      ),
+      /*#__PURE__*/React.createElement("div", { className: "flex justify-end gap-2 pt-2" },
+        /*#__PURE__*/React.createElement("button", {
+          onClick: closeModal,
+          className: "px-4 py-2 text-sm border border-gray-200 rounded-2xl hover:bg-gray-50"
+        }, "キャンセル"),
+        /*#__PURE__*/React.createElement("button", {
+          onClick: handleSave,
+          disabled: !modalForm.title.trim() || !modalForm.end,
+          className: "px-4 py-2 text-sm font-medium bg-orange-500 text-white rounded-2xl hover:bg-orange-600 disabled:opacity-40 disabled:cursor-not-allowed"
+        }, editingItem ? '保存' : '追加')
+      )
+    ))
   );
 };
 
@@ -2602,7 +2744,8 @@ var App = function App() {
   }, "\u2713 ", lastUpdated, " \u306B\u30AD\u30E3\u30F3\u30DA\u30FC\u30F3\u30B7\u30FC\u30C8\u518D\u8AAD\u307F\u8FBC\u307F\u5B8C\u4E86\uFF08", data.length, "\u4EF6\uFF09"), /*#__PURE__*/React.createElement("div", {
     className: "max-w-5xl"
   }, page === 'home' && /*#__PURE__*/React.createElement(HomePage, {
-    data: data
+    data: data,
+    onReload: handleReloadCampaigns
   }), page === 'campaign' && /*#__PURE__*/React.createElement(CampaignPage, {
     data: data,
     backlogData: backlogData,
