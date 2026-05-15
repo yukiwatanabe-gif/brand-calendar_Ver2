@@ -577,10 +577,6 @@ function fetchViaWebApp(sheetParam) {
       cleanup();
       if (data && data.error) reject(new Error(data.error));else resolve(data);
     };
-    script.onerror = function () {
-      cleanup();
-      reject(new Error('スクリプト読み込みエラー'));
-    };
     script.src = "".concat(SHEET_CONFIG.webAppUrl, "?sheet=").concat(sheetParam, "&callback=").concat(cbName);
     document.head.appendChild(script);
   });
